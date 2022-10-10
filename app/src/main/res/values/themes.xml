@@ -19,4 +19,9 @@
         <item name="android:statusBarColor">@color/pastel</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
+    <style name="Theme.Travelling.homeTransparentStatusBar">
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
 </resources>

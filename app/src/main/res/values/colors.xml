@@ -10,4 +10,8 @@
     <color name="grey_dark">#202020</color>
     <color name="grey_light">#B8B8B8</color>
     <color name="pastel">#ECDDFF</color>
+    <color name="blue_pastel">#B7CBFB</color>
+    <color name="purple_pastel">#DEC7EF</color>
+    <color name="yellow_pastel">#F6F2B3</color>
+    <color name="pink_pastel">#E6B8D9</color>
 </resources>

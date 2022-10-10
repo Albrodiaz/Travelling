@@ -4,12 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/ic_background_onboarding.xml" value="0.176" />
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.184" />
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/ic_baseline_face_6_24.xml" value="0.184" />
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.184" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/ic_launcher_background.xml" value="0.176" />
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/ic_mountain_24.xml" value="0.184" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/onboarding_background.xml" value="0.158" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/rounded_background.xml" value="0.103" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/rounded_corners.xml" value="0.176" />
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/rounded_square.xml" value="0.1515" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout-v28/onboarding_layout.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/activity_home.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/activity_onboarding.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/onboarding_layout.xml" value="0.1" />
