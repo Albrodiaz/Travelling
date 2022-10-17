@@ -8,4 +8,10 @@
     <string name="city1">City of Los Angeles</string>
     <string name="location2">Maldives - 3 weeks</string>
     <string name="city2">Beach vacation</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="get_new">Get new</string>
+    <string name="have_account">Do you have an account?</string>
+    <string name="coming_soon">Esta funcionalidad estará próximamente</string>
 </resources>
