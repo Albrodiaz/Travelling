@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/background_textinput_layout.xml" value="0.1" />
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/baseline_face_black_24dp.xml" value="0.102" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/ic_background_onboarding.xml" value="0.176" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.184" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/drawable/ic_baseline_face_6_24.xml" value="0.184" />
@@ -18,6 +20,9 @@
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/activity_onboarding.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/activity_register_login.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/dropdown_item.xml" value="0.130859375" />
         <entry key="..\:/Users/choc_/Desktop/TokioSchool/CursoAppsAndroid/Proyectos/Travelling/app/src/main/res/layout/onboarding_layout.xml" value="0.1" />
       </map>
     </option>
@@ -27,5 +32,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.16666666666666666" />
+      </ProjectState>
+    </option>
   </component>
 </project>

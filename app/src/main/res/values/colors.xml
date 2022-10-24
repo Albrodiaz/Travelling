@@ -9,9 +9,23 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey_dark">#202020</color>
     <color name="grey_light">#B8B8B8</color>
+    <color name="grey_extra_light">#DDDDDD</color>
     <color name="pastel">#ECDDFF</color>
     <color name="blue_pastel">#B7CBFB</color>
     <color name="purple_pastel">#DEC7EF</color>
     <color name="yellow_pastel">#F6F2B3</color>
     <color name="pink_pastel">#E6B8D9</color>
+    <!-- Register Activity Colors -->
+    <color name="primaryColor">#009688</color>
+    <color name="primaryLightColor">#52c7b8</color>
+    <color name="primaryDarkColor">#00675b</color>
+    <color name="secondaryColor">#ffb300</color>
+    <color name="secondaryLightColor">#ffe54c</color>
+    <color name="secondaryDarkColor">#c68400</color>
+    <color name="primaryTextColor">#fafafa</color>
+    <color name="secondaryTextColor">#fafafa</color>
+    <color name="background_color">#CFFFF6</color>
+    <!-- Register InputsLayouts Color -->
+    <color name="inputTextBackground">#D1EEE6</color>
+    <color name="borderColor">#4C4C4C</color>
 </resources>

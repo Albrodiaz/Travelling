@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Snackbar.make(v, R.string.coming_soon, Snackbar.LENGTH_SHORT).show();
                 break;
             case (R.id.login_button):
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         }
     }
 
