@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="es.travelworld.travelling">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -22,10 +24,9 @@
             android:name=".LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Travelling.homeTransparentStatusBar">
+            android:theme="@style/Theme.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 

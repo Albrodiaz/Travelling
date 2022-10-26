@@ -1,19 +1,32 @@
 package es.travelworld.travelling;
 
+import static es.travelworld.travelling.Constants.KEY_USERLOGIN;
+import static es.travelworld.travelling.Constants.KEY_USERNAME;
+import static es.travelworld.travelling.Constants.KEY_USERPASWORD;
+import static es.travelworld.travelling.Constants.KEY_USERSURNAME;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
-import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Objects;
 
 import es.travelworld.travelling.databinding.ActivityLoginBinding;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
+    private String userName;
+    private String userPassword;
+    private final Validation validations = new Validation();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,25 +34,64 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
+        getUserData();
         listeners();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case (R.id.get_new):
-            case (R.id.create_account):
-                Snackbar.make(v, R.string.coming_soon, Snackbar.LENGTH_SHORT).show();
-                break;
-            case (R.id.login_button):
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+    private void listeners() {
+        binding.createAccount.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), RegisterActivity.class)));
+        binding.loginButton.setOnClickListener(v -> checkUserData(binding.etLoginUser.getText().toString(),
+                binding.etLoginPassword.getText().toString(), v));
+        binding.etLoginUser.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                binding.loginButton.setEnabled(validations.isNotEmptyField(binding.etLoginUser, binding.etLoginPassword));
+
+            }
+        });
+        binding.etLoginPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                binding.loginButton.setEnabled(validations.isNotEmptyField(binding.etLoginUser, binding.etLoginPassword));
+            }
+        });
+    }
+
+    private void getUserData() {
+        if (getIntent().getExtras() != null && getIntent().getExtras() != null) {
+            userName = getIntent().getExtras().getString(KEY_USERNAME);
+            userPassword = getIntent().getExtras().getString(KEY_USERSURNAME);
         }
     }
 
-    private void listeners() {
-        binding.getNew.setOnClickListener(this);
-        binding.createAccount.setOnClickListener(this);
-        binding.loginButton.setOnClickListener(this);
+    private void checkUserData(String name, String password, View v) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.putExtra(KEY_USERLOGIN, name);
+        intent.putExtra(KEY_USERPASWORD, password);
+        if (Objects.equals(name, userName) && Objects.equals(password, userPassword)) {
+            startActivity(intent);
+        } else {
+            Snackbar.make(v, R.string.bad_request, Snackbar.LENGTH_SHORT).show();
+        }
     }
 }

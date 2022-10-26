@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- TextInput Layout Style -->
+    <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.CustomTextInput">
+        <item name="materialThemeOverlay">
+            @style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox.CustomEditText
+        </item>
+        <item name="boxBackgroundColor">@color/inputTextBackground</item>
+    </style>
+
+    <style name="Register_EditText">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:inputType">textCapWords</item>
+    </style>
+
+    <style name="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox.CustomEditText">
+        <item name="colorPrimary">@color/borderColor</item>
+        <item name="android:textColorPrimary">@color/borderColor</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Toolbar Style -->
+    <style name="Widget.MaterialComponents.Toolbar.CustomToolbar">
+        <item name="titleTextColor">@color/primaryTextColor</item>
+    </style>
+
+    <!-- Button Style -->
+    <style name="CustomButton" parent="Widget.MaterialComponents.Button">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.Button</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ThemeOverlay.MaterialComponents.Button" parent="">
+        <item name="colorPrimary">@color/secondaryColor</item>
+    </style>
+
+</resources>
