@@ -4,21 +4,14 @@ import static es.travelworld.travelling.Constants.KEY_USERLOGIN;
 import static es.travelworld.travelling.Constants.KEY_USERNAME;
 import static es.travelworld.travelling.Constants.KEY_USERPASWORD;
 import static es.travelworld.travelling.Constants.KEY_USERSURNAME;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputEditText;
-
 import java.util.Objects;
-
 import es.travelworld.travelling.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
@@ -40,8 +33,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private void listeners() {
         binding.createAccount.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), RegisterActivity.class)));
+
         binding.loginButton.setOnClickListener(v -> checkUserData(binding.etLoginUser.getText().toString(),
                 binding.etLoginPassword.getText().toString(), v));
+
         binding.etLoginUser.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -55,10 +50,11 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                binding.loginButton.setEnabled(validations.isNotEmptyField(binding.etLoginUser, binding.etLoginPassword));
-
+                binding.loginButton.setEnabled(validations.isNotEmptyField(binding.etLoginUser)
+                        && validations.isNotEmptyField(binding.etLoginPassword));
             }
         });
+
         binding.etLoginPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -72,7 +68,8 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                binding.loginButton.setEnabled(validations.isNotEmptyField(binding.etLoginUser, binding.etLoginPassword));
+                binding.loginButton.setEnabled(validations.isNotEmptyField(binding.etLoginUser)
+                        && validations.isNotEmptyField(binding.etLoginPassword));
             }
         });
     }

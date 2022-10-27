@@ -2,23 +2,19 @@ package es.travelworld.travelling;
 
 import static es.travelworld.travelling.Constants.KEY_USERNAME;
 import static es.travelworld.travelling.Constants.KEY_USERSURNAME;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import es.travelworld.travelling.databinding.ActivityRegisterBinding;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -54,10 +50,12 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     binding.layoutName.setErrorEnabled(false);
                 }
-                binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName, binding.etSurname)
+                binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName)
+                        && validations.isNotEmptyField(binding.etSurname)
                         && !binding.layoutName.isErrorEnabled() && !binding.layoutSurname.isErrorEnabled());
             }
         });
+
         binding.etSurname.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -76,10 +74,12 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     binding.layoutSurname.setErrorEnabled(false);
                 }
-                binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName, binding.etSurname)
+                binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName)
+                        && validations.isNotEmptyField(binding.etSurname)
                         && !binding.layoutName.isErrorEnabled() && !binding.layoutSurname.isErrorEnabled());
             }
         });
+
         binding.acRange.addTextChangedListener(new TextWatcher() {
             final String[] agerange = getResources().getStringArray(R.array.age_range);
 
@@ -98,17 +98,21 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     binding.layoutAge.setErrorEnabled(false);
                 }
-                binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName, binding.etSurname));
+                binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName)
+                        && validations.isNotEmptyField(binding.etSurname));
             }
         });
+
         binding.acRange.setOnFocusChangeListener((v, hasFocus) -> {
-            if (v.hasFocus()) {
-                hideKeyboard(v);
-            }
+            if (v.hasFocus()) { hideKeyboard(v); }
         });
+
         binding.ivCamera.setOnClickListener(v -> initCamera());
+
         binding.tvConditions.setOnClickListener(v -> openConditions());
+
         binding.regiterToolbar.setNavigationOnClickListener(v -> onBackPressed());
+
         binding.btnRegister.setOnClickListener(v -> register(binding.etName.getText().toString()
                 , binding.etSurname.getText().toString()));
     }

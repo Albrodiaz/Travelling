@@ -5,6 +5,7 @@ import static es.travelworld.travelling.Constants.KEY_USERPASWORD;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -21,10 +22,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void getExtraData(){
-        if (getIntent().getExtras() != null && getIntent().getExtras() != null) {
+        if (getIntent().getExtras() != null) {
             username = getIntent().getExtras().getString(KEY_USERLOGIN);
             userSurname = getIntent().getExtras().getString(KEY_USERPASWORD);
         }
         Log.e("Welcome", "Bienvenido " + username + " " + userSurname);
+    }
+
+    @Override
+    public void onBackPressed() {
+        //Anular botón atrás
     }
 }

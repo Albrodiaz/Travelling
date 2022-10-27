@@ -17,7 +17,7 @@ public class Validation {
         return !flag;
     }
 
-    public boolean isNotEmptyField(@NonNull TextInputEditText firstText, TextInputEditText secondText) {
-        return !TextUtils.isEmpty(firstText.getText().toString()) && !TextUtils.isEmpty(secondText.getText().toString());
+    public boolean isNotEmptyField(@NonNull TextInputEditText firstText) {
+        return !TextUtils.isEmpty(firstText.getText().toString());
     }
 }
