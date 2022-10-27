@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void getUserData() {
-        if (getIntent().getExtras() != null && getIntent().getExtras() != null) {
+        if (getIntent().getExtras() != null) {
             userName = getIntent().getExtras().getString(KEY_USERNAME);
             userPassword = getIntent().getExtras().getString(KEY_USERSURNAME);
         }
