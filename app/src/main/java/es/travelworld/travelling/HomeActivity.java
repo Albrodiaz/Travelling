@@ -7,13 +7,15 @@ import static es.travelworld.travelling.Constants.KEY_USERPASWORD;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import es.travelworld.travelling.databinding.ActivityHomeBinding;
 
@@ -28,18 +30,19 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        getExtraData();
+        View view = binding.getRoot();
+        setContentView(view);
+        getExtraData(view);
         listeners();
 
     }
 
-    private void getExtraData() {
+    private void getExtraData(View v) {
         if (getIntent().getExtras() != null) {
             username = getIntent().getExtras().getString(KEY_USERLOGIN);
             userSurname = getIntent().getExtras().getString(KEY_USERPASWORD);
         }
-        Log.e("Welcome", "Bienvenido " + username + " " + userSurname);
+        Snackbar.make(v, "Bienvenido " + username + " " + userSurname, Snackbar.LENGTH_SHORT).show();
     }
 
     private void listeners() {

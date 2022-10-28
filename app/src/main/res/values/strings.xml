@@ -28,6 +28,9 @@
     <string name="eurodisney">Eurodisney</string>
     <string name="rent_a_car">Alquila un coche</string>
     <string name="back">Atrás</string>
+    <string name="verify_data">Verifique los datos</string>
+    <string name="autentication_error">Error de autenticación</string>
+    <string name="understood">Entendido</string>
 
     <string-array name="age_range">
         <item>0–5</item>

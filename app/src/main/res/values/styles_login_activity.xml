@@ -25,4 +25,10 @@
         <item name="android:enabled">false</item>
     </style>
 
+    <style name="Theme.App.CustomAlert" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="colorPrimary">@color/primaryDarkColor</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
+    </style>
+
 </resources>

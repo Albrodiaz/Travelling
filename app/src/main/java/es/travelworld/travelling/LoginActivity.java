@@ -4,14 +4,19 @@ import static es.travelworld.travelling.Constants.KEY_USERLOGIN;
 import static es.travelworld.travelling.Constants.KEY_USERNAME;
 import static es.travelworld.travelling.Constants.KEY_USERPASWORD;
 import static es.travelworld.travelling.Constants.KEY_USERSURNAME;
-import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import java.util.Objects;
+
 import es.travelworld.travelling.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
@@ -88,7 +93,17 @@ public class LoginActivity extends AppCompatActivity {
         if (Objects.equals(name, userName) && Objects.equals(password, userPassword)) {
             startActivity(intent);
         } else {
-            Snackbar.make(v, R.string.bad_request, Snackbar.LENGTH_SHORT).show();
+            showAlert();
         }
+    }
+
+    private void showAlert() {
+        MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(this);
+        alertDialogBuilder
+                .setTitle(R.string.autentication_error)
+                .setMessage(R.string.verify_data)
+                .setPositiveButton(R.string.understood,
+                        (dialog, which) -> dialog.cancel())
+                .show();
     }
 }
