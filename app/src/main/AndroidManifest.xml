@@ -36,7 +36,8 @@
             android:name=".HomeActivity"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Travelling.homeTransparentStatusBar"/>
+            android:theme="@style/Theme.Home">
+        </activity>
 
         <activity
             android:name=".InfoActivity"

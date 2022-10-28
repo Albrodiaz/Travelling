@@ -24,6 +24,9 @@
     <string name="create_new">Create new</string>
     <string name="bad_request">Vaya! Algo salió mal</string>
     <string name="welcome">Bienvenido</string>
+    <string name="home">Home</string>
+    <string name="eurodisney">Eurodisney</string>
+    <string name="rent_a_car">Alquila un coche</string>
 
     <string-array name="age_range">
         <item>0–5</item>
@@ -31,4 +34,7 @@
         <item>12–17</item>
         <item>18–99</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back">Atrás</string>
 </resources>

@@ -2,19 +2,25 @@ package es.travelworld.travelling;
 
 import static es.travelworld.travelling.Constants.KEY_USERNAME;
 import static es.travelworld.travelling.Constants.KEY_USERSURNAME;
-import android.annotation.SuppressLint;
+import static es.travelworld.travelling.Constants.REQUEST_IMAGE_CAPTURE;
+import static es.travelworld.travelling.Constants.TERMSWEB;
+
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import es.travelworld.travelling.databinding.ActivityRegisterBinding;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -52,7 +58,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName)
                         && validations.isNotEmptyField(binding.etSurname)
-                        && !binding.layoutName.isErrorEnabled() && !binding.layoutSurname.isErrorEnabled());
+                        && !binding.layoutName.isErrorEnabled()
+                        && !binding.layoutSurname.isErrorEnabled());
             }
         });
 
@@ -76,7 +83,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName)
                         && validations.isNotEmptyField(binding.etSurname)
-                        && !binding.layoutName.isErrorEnabled() && !binding.layoutSurname.isErrorEnabled());
+                        && !binding.layoutName.isErrorEnabled()
+                        && !binding.layoutSurname.isErrorEnabled());
             }
         });
 
@@ -98,13 +106,13 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     binding.layoutAge.setErrorEnabled(false);
                 }
-                binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName)
-                        && validations.isNotEmptyField(binding.etSurname));
             }
         });
 
         binding.acRange.setOnFocusChangeListener((v, hasFocus) -> {
-            if (v.hasFocus()) { hideKeyboard(v); }
+            if (v.hasFocus()) {
+                hideKeyboard(v);
+            }
         });
 
         binding.ivCamera.setOnClickListener(v -> initCamera());
@@ -123,16 +131,17 @@ public class RegisterActivity extends AppCompatActivity {
         ((AutoCompleteTextView) binding.acRange).setAdapter(adapter);
     }
 
-    @SuppressLint("QueryPermissionsNeeded")
     private void initCamera() {
         Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
+        try {
+            startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+        } catch (ActivityNotFoundException e) {
+            Log.w("Error", e);
         }
     }
 
     private void openConditions() {
-        Uri web = Uri.parse("https://developers.google.com/ml-kit/terms");
+        Uri web = Uri.parse(TERMSWEB);
         startActivity(new Intent(Intent.ACTION_VIEW, web));
     }
 
