@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- TextInput Layout Style -->
+    <!-- Register TextinputLayout Style -->
     <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.CustomTextInput">
         <item name="materialThemeOverlay">
             @style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox.CustomEditText
@@ -18,7 +18,7 @@
     </style>
 
     <style name="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox.CustomEditText">
-        <item name="colorPrimary">@color/borderColor</item>
+        <item name="colorPrimary">@color/primaryDarkColor</item>
         <item name="android:textColorPrimary">@color/borderColor</item>
         <item name="android:textSize">16sp</item>
     </style>
@@ -29,13 +29,13 @@
     </style>
 
     <!-- Button Style -->
-    <style name="CustomButton" parent="Widget.MaterialComponents.Button">
+    <style name="RegisterButton" parent="Widget.MaterialComponents.Button">
         <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.Button</item>
         <item name="android:textSize">18sp</item>
     </style>
 
     <style name="ThemeOverlay.MaterialComponents.Button" parent="">
-        <item name="colorPrimary">@color/secondaryColor</item>
+        <item name="colorPrimary">?attr/colorSecondary</item>
     </style>
 
 </resources>

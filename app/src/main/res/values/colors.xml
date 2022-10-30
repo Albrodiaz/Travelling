@@ -8,6 +8,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
     <!-- Login & Home Colors -->
     <color name="grey_dark">#202020</color>
     <color name="grey_light">#B8B8B8</color>

@@ -19,7 +19,7 @@
             android:name=".RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.RegisterActivity" />
+            android:theme="@style/Theme.RegisterActivity"/>
 
         <activity
             android:name=".LoginActivity"
@@ -35,15 +35,15 @@
         <activity
             android:name=".HomeActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Home">
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".InfoActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Travelling.pastelStatusBar" />
+            android:theme="@style/Theme.InfoActivity">
+        </activity>
     </application>
 
 </manifest>

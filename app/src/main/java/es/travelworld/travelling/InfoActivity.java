@@ -12,9 +12,9 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.onboarding_layout);
 
-        TextView nextButton = (TextView) findViewById(R.id.nextButton);
+        TextView nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
         });
     }
