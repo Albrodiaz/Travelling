@@ -46,23 +46,20 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void listeners() {
-        binding.homeToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                switch (id) {
-                    case R.id.iconCastle:
-                        Uri web = Uri.parse(EURODISNEYWEB);
-                        startActivity(new Intent(Intent.ACTION_VIEW, web));
-                        return true;
-                    case R.id.itemCar:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.homeContainer, carFragment ).commit();
-                        return true;
-                    default:
-                        Toast.makeText(getApplicationContext(), "Algo ha fallado", Toast.LENGTH_SHORT).show();
-                }
-                return HomeActivity.super.onOptionsItemSelected(item);
+        binding.homeToolbar.setOnMenuItemClickListener(item -> {
+            int id = item.getItemId();
+            switch (id) {
+                case R.id.iconCastle:
+                    Uri web = Uri.parse(EURODISNEYWEB);
+                    startActivity(new Intent(Intent.ACTION_VIEW, web));
+                    return true;
+                case R.id.itemCar:
+                    getSupportFragmentManager().beginTransaction().replace(R.id.homeContainer, carFragment ).commit();
+                    return true;
+                default:
+                    Toast.makeText(getApplicationContext(), "Algo ha fallado", Toast.LENGTH_SHORT).show();
             }
+            return HomeActivity.super.onOptionsItemSelected(item);
         });
     }
 

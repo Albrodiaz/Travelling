@@ -56,10 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     binding.layoutName.setErrorEnabled(false);
                 }
-                binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName)
-                        && validations.isNotEmptyField(binding.etSurname)
-                        && !binding.layoutName.isErrorEnabled()
-                        && !binding.layoutSurname.isErrorEnabled());
+                binding.btnRegister.setEnabled(isButtonEnabled());
             }
         });
 
@@ -81,10 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     binding.layoutSurname.setErrorEnabled(false);
                 }
-                binding.btnRegister.setEnabled(validations.isNotEmptyField(binding.etName)
-                        && validations.isNotEmptyField(binding.etSurname)
-                        && !binding.layoutName.isErrorEnabled()
-                        && !binding.layoutSurname.isErrorEnabled());
+                binding.btnRegister.setEnabled(isButtonEnabled());
             }
         });
 
@@ -106,6 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     binding.layoutAge.setErrorEnabled(false);
                 }
+                binding.btnRegister.setEnabled(isButtonEnabled());
             }
         });
 
@@ -156,5 +151,13 @@ public class RegisterActivity extends AppCompatActivity {
         intent.putExtra(KEY_USERSURNAME, surname);
         startActivity(intent);
         finish();
+    }
+
+    private boolean isButtonEnabled() {
+        return validations.isNotEmptyField(binding.etName)
+                && validations.isNotEmptyField(binding.etSurname)
+                && !binding.layoutName.isErrorEnabled()
+                && !binding.layoutSurname.isErrorEnabled()
+                && !binding.layoutAge.isErrorEnabled();
     }
 }

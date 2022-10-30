@@ -31,6 +31,11 @@
     <string name="verify_data">Verifique los datos</string>
     <string name="autentication_error">Error de autenticación</string>
     <string name="understood">Entendido</string>
+    <string name="photo">Imágenes</string>
+    <string name="favourites">Favoritos</string>
+    <string name="travel">Viajes</string>
+    <string name="profile">Perfil</string>
+    <string name="imagen_viaje">Foto del viaje</string>
 
     <string-array name="age_range">
         <item>0–5</item>

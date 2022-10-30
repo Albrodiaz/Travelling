@@ -17,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:menu="@menu/home_menu"
-            app:layout_scrollFlags="scroll|enterAlways"
             app:navigationIcon="@drawable/baseline_menu_white_24dp"
             app:title="@string/home" />
     </com.google.android.material.appbar.AppBarLayout>
@@ -68,7 +67,8 @@
                         app:layout_constraintHorizontal_chainStyle="spread_inside"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintVertical_bias="0.0"
+                        android:contentDescription="@string/photo" />
 
                     <ImageButton
                         android:id="@+id/likeButton"
@@ -82,7 +82,8 @@
                         app:layout_constraintEnd_toStartOf="@+id/travelButton"
                         app:layout_constraintStart_toEndOf="@+id/cameraButton"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintVertical_bias="0.0"
+                        android:contentDescription="@string/favourites" />
 
                     <ImageButton
                         android:id="@+id/travelButton"
@@ -95,7 +96,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/profileButton"
                         app:layout_constraintStart_toEndOf="@+id/likeButton"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/travel" />
 
                     <ImageButton
                         android:id="@+id/profileButton"
@@ -107,7 +109,8 @@
                         android:src="@drawable/ic_baseline_face_6_24"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/travelButton"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/profile" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -136,7 +139,7 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:contentDescription="Imagen card 1"
+                            android:contentDescription="@string/imagen_viaje"
                             android:src="@drawable/image_container1" />
 
                         <TextView
@@ -173,7 +176,7 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:contentDescription="Imagen card 1"
+                            android:contentDescription="@string/imagen_viaje"
                             android:src="@drawable/image_container2" />
 
                         <TextView

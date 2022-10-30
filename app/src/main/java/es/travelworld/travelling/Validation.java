@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.Objects;
+
 public class Validation {
     public boolean isValidChar(@NonNull String text) {
         boolean flag = true;
@@ -18,6 +20,6 @@ public class Validation {
     }
 
     public boolean isNotEmptyField(@NonNull TextInputEditText firstText) {
-        return !TextUtils.isEmpty(firstText.getText().toString());
+        return !TextUtils.isEmpty(Objects.requireNonNull(firstText.getText()).toString());
     }
 }

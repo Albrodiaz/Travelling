@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         binding.createAccount.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), RegisterActivity.class)));
 
         binding.loginButton.setOnClickListener(v -> checkUserData(binding.etLoginUser.getText().toString(),
-                binding.etLoginPassword.getText().toString(), v));
+                binding.etLoginPassword.getText().toString()));
 
         binding.etLoginUser.addTextChangedListener(new TextWatcher() {
             @Override
@@ -55,8 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                binding.loginButton.setEnabled(validations.isNotEmptyField(binding.etLoginUser)
-                        && validations.isNotEmptyField(binding.etLoginPassword));
+                binding.loginButton.setEnabled(isButtonEnabled());
             }
         });
 
@@ -73,8 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                binding.loginButton.setEnabled(validations.isNotEmptyField(binding.etLoginUser)
-                        && validations.isNotEmptyField(binding.etLoginPassword));
+                binding.loginButton.setEnabled(isButtonEnabled());
             }
         });
     }
@@ -86,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void checkUserData(String name, String password, View v) {
+    private void checkUserData(String name, String password) {
         Intent intent = new Intent(this, HomeActivity.class);
         intent.putExtra(KEY_USERLOGIN, name);
         intent.putExtra(KEY_USERPASWORD, password);
@@ -105,5 +103,10 @@ public class LoginActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.understood,
                         (dialog, which) -> dialog.cancel())
                 .show();
+    }
+
+    private boolean isButtonEnabled() {
+        return validations.isNotEmptyField(binding.etLoginUser)
+                && validations.isNotEmptyField(binding.etLoginPassword);
     }
 }
