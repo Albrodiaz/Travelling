@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void listeners() {
-        binding.createAccount.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), RegisterActivity.class)));
+        binding.createAccount.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
 
         binding.loginButton.setOnClickListener(v -> checkUserData(binding.etLoginUser.getText().toString(),
                 binding.etLoginPassword.getText().toString()));
