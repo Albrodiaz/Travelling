@@ -1,4 +1,4 @@
-package es.travelworld.travelling;
+package es.travelworld.travelling.utilities;
 
 import android.text.TextUtils;
 

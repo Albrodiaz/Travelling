@@ -1,11 +1,11 @@
-package es.travelworld.travelling;
+package es.travelworld.travelling.fragments;
 
-import static es.travelworld.travelling.Constants.KEY_USERNAME;
-import static es.travelworld.travelling.Constants.KEY_USERSURNAME;
+import static android.content.Context.INPUT_METHOD_SERVICE;
 import static es.travelworld.travelling.Constants.REQUEST_IMAGE_CAPTURE;
 import static es.travelworld.travelling.Constants.TERMSWEB;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,28 +13,59 @@ import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import es.travelworld.travelling.databinding.ActivityRegisterBinding;
+import java.util.Objects;
 
-public class RegisterActivity extends AppCompatActivity {
+import es.travelworld.travelling.R;
+import es.travelworld.travelling.databinding.FragmentRegisterBinding;
+import es.travelworld.travelling.utilities.Validation;
 
-    private ActivityRegisterBinding binding;
+public class RegisterFragment extends Fragment {
+
+    private FragmentRegisterBinding binding;
     private final Validation validations = new Validation();
 
+    public RegisterFragment() {
+    }
+
+    public static RegisterFragment newInstance() {
+        RegisterFragment fragment = new RegisterFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        binding = ActivityRegisterBinding.inflate(getLayoutInflater());
-        super.onCreate(savedInstanceState);
-        setContentView(binding.getRoot());
-        initAdapter();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        binding = FragmentRegisterBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
         listeners();
+        initAdapter();
+
+        return view;
+    }
+
+    @NonNull
+    @Override
+    //Método para aplicar tema al Fragment
+    public LayoutInflater onGetLayoutInflater(@Nullable Bundle savedInstanceState) {
+        LayoutInflater inflater = super.onGetLayoutInflater(savedInstanceState);
+        Context contextTheme = new ContextThemeWrapper(requireContext(), R.style.Theme_RegisterActivity);
+        return inflater.cloneInContext(contextTheme);
     }
 
     private void listeners() {
@@ -114,15 +145,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         binding.tvConditions.setOnClickListener(v -> openConditions());
 
-        binding.regiterToolbar.setNavigationOnClickListener(v -> onBackPressed());
-
         binding.btnRegister.setOnClickListener(v -> register(binding.etName.getText().toString()
                 , binding.etSurname.getText().toString()));
     }
 
     private void initAdapter() {
         String[] items = getResources().getStringArray(R.array.age_range);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.dropdown_item, items);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), R.layout.dropdown_item, items);
         ((AutoCompleteTextView) binding.acRange).setAdapter(adapter);
     }
 
@@ -141,16 +170,13 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void hideKeyboard(@NonNull View v) {
-        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        InputMethodManager imm =
+                (InputMethodManager) requireActivity().getSystemService(INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
     }
 
     private void register(String name, String surname) {
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.putExtra(KEY_USERNAME, name);
-        intent.putExtra(KEY_USERSURNAME, surname);
-        startActivity(intent);
-        finish();
+        //TODO ENVIAR DATOS DE USUARIO A ACTIVITY
     }
 
     private boolean isButtonEnabled() {
