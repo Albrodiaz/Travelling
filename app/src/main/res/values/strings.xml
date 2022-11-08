@@ -19,7 +19,7 @@
     <string name="user_surname">¿Y tu apellido?</string>
     <string name="btRegister">Me apunto</string>
     <string name="conditions">Ver Condiciones</string>
-    <string name="privacity">Política de privacidad</string>
+    <string name="privacy">Política de privacidad</string>
     <string name="user_age">¿Cuántos años tienes?</string>
     <string name="create_new">Create new</string>
     <string name="bad_request">Vaya! Algo salió mal</string>

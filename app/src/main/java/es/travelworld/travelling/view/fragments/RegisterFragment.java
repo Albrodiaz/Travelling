@@ -26,6 +26,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.Objects;
+
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentRegisterBinding;
 import es.travelworld.travelling.utilities.Validation;
@@ -50,7 +52,7 @@ public class RegisterFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentRegisterBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -155,8 +157,9 @@ public class RegisterFragment extends Fragment {
         binding.tvConditions.setOnClickListener(v -> openConditions());
 
         binding.btnRegister.setOnClickListener(v ->
-                register(binding.etName.getText().toString(),binding.etSurname.getText().toString())
-        );
+                register(Objects.requireNonNull(binding.etName.getText()).toString(),
+                        Objects.requireNonNull(binding.etSurname.getText()).toString()
+                ));
     }
 
     private void initAdapter() {

@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         initLoginFragment();
+        listeners();
         hideToolbar();
     }
 
@@ -46,5 +47,9 @@ public class LoginActivity extends AppCompatActivity {
                 .replace(binding.fragmentContainer.getId(), loginFragment, TAG_LOGINFRAGMENT)
                 .addToBackStack(null)
                 .commitAllowingStateLoss();
+    }
+
+    private void listeners() {
+        binding.registerToolbar.setNavigationOnClickListener(v -> super.onBackPressed());
     }
 }
