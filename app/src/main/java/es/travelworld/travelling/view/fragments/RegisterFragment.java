@@ -1,4 +1,4 @@
-package es.travelworld.travelling.fragments;
+package es.travelworld.travelling.view.fragments;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static es.travelworld.travelling.Constants.REQUEST_IMAGE_CAPTURE;
@@ -23,20 +23,21 @@ import android.widget.AutoCompleteTextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import java.util.Objects;
+import androidx.lifecycle.ViewModelProvider;
 
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentRegisterBinding;
 import es.travelworld.travelling.utilities.Validation;
+import es.travelworld.travelling.view.viewmodels.LoginViewModel;
+import es.travelworld.travelling.view.viewmodels.RegisterViewModel;
 
 public class RegisterFragment extends Fragment {
 
     private FragmentRegisterBinding binding;
     private final Validation validations = new Validation();
+    private LoginViewModel loginViewModel;
+    private RegisterViewModel registerViewModel;
 
     public RegisterFragment() {
     }
@@ -57,6 +58,14 @@ public class RegisterFragment extends Fragment {
         initAdapter();
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
+        registerViewModel = new ViewModelProvider(requireActivity()).get(RegisterViewModel.class);
+        loginViewModel.setFragmentSelected(this);
     }
 
     @NonNull
@@ -145,8 +154,9 @@ public class RegisterFragment extends Fragment {
 
         binding.tvConditions.setOnClickListener(v -> openConditions());
 
-        binding.btnRegister.setOnClickListener(v -> register(binding.etName.getText().toString()
-                , binding.etSurname.getText().toString()));
+        binding.btnRegister.setOnClickListener(v ->
+                register(binding.etName.getText().toString(),binding.etSurname.getText().toString())
+        );
     }
 
     private void initAdapter() {
@@ -176,7 +186,8 @@ public class RegisterFragment extends Fragment {
     }
 
     private void register(String name, String surname) {
-        //TODO ENVIAR DATOS DE USUARIO A ACTIVITY
+        registerViewModel.createUser(name, surname);
+        getParentFragmentManager().popBackStack();
     }
 
     private boolean isButtonEnabled() {

@@ -1,8 +1,6 @@
-package es.travelworld.travelling;
+package es.travelworld.travelling.view;
 
 import static es.travelworld.travelling.Constants.EURODISNEYWEB;
-import static es.travelworld.travelling.Constants.KEY_USERLOGIN;
-import static es.travelworld.travelling.Constants.KEY_USERPASWORD;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,17 +10,21 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.ActivityHomeBinding;
+import es.travelworld.travelling.domain.User;
+import es.travelworld.travelling.view.fragments.CarFragment;
+import es.travelworld.travelling.view.viewmodels.RegisterViewModel;
 
 public class HomeActivity extends AppCompatActivity {
 
     ActivityHomeBinding binding;
     Fragment carFragment = new CarFragment();
-    private String username;
-    private String userSurname;
+    String name, surname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +32,17 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        getExtraData(view);
+        getUserData(view);
         listeners();
 
     }
 
-    private void getExtraData(View v) {
+    private void getUserData(View v) {
         if (getIntent().getExtras() != null) {
-            username = getIntent().getExtras().getString(KEY_USERLOGIN);
-            userSurname = getIntent().getExtras().getString(KEY_USERPASWORD);
+            name = getIntent().getStringExtra("UserName");
+            surname = getIntent().getStringExtra("UserSurname");
+            Snackbar.make(v, getString(R.string.welcome_home, name, surname), Snackbar.LENGTH_SHORT).show();
         }
-        Snackbar.make(v, "Bienvenido " + username + " " + userSurname, Snackbar.LENGTH_SHORT).show();
     }
 
     private void listeners() {
@@ -52,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(new Intent(Intent.ACTION_VIEW, web));
                     return true;
                 case R.id.itemCar:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.homeContainer, carFragment ).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.homeContainer, carFragment).commit();
                     return true;
                 default:
                     Toast.makeText(getApplicationContext(), "Algo ha fallado", Toast.LENGTH_SHORT).show();

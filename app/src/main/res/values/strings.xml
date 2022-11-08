@@ -36,6 +36,7 @@
     <string name="travel">Viajes</string>
     <string name="profile">Perfil</string>
     <string name="imagen_viaje">Foto del viaje</string>
+    <string name="welcome_home">Bienvenido %1$s %2$s</string>
 
     <string-array name="age_range">
         <item>0–5</item>

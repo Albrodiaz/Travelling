@@ -1,9 +1,11 @@
-package es.travelworld.travelling;
+package es.travelworld.travelling.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import es.travelworld.travelling.R;
 
 public class InfoActivity extends AppCompatActivity {
 
