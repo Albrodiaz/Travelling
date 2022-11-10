@@ -1,5 +1,7 @@
 package es.travelworld.travelling.view.fragments.loginFragments;
 
+import static es.travelworld.travelling.Constants.TAG_REGISTERFRAGMENT;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -147,7 +149,7 @@ public class LoginFragment extends Fragment {
 
     private void initRegisterFragment() {
         requireActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainer, new RegisterFragment(), "RegisterFragment")
+                .replace(R.id.fragmentContainer, new RegisterFragment(), TAG_REGISTERFRAGMENT)
                 .addToBackStack(null)
                 .commitAllowingStateLoss();
     }

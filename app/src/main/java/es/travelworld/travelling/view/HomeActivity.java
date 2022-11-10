@@ -10,11 +10,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.ActivityHomeBinding;
+import es.travelworld.travelling.view.fragments.homeFragments.HomePageAdapter;
 import es.travelworld.travelling.view.fragments.loginFragments.CarFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -29,9 +32,9 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        setAdapter();
         getUserData(view);
         listeners();
-
     }
 
     private void getUserData(View v) {
@@ -60,8 +63,24 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        //Anular botón atrás
+    private void setAdapter() {
+        HomePageAdapter pageAdapter = new HomePageAdapter(this);
+        binding.homeViewPager.setAdapter(pageAdapter);
+        binding.homeViewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+        new TabLayoutMediator(binding.homeTabLayout, binding.homeViewPager, ((tab, position) -> {
+            if (position == 0) {
+                tab.setIcon(R.drawable.ic_baseline_camera_alt_24);
+            }
+            if (position == 1) {
+                tab.setIcon(R.drawable.baseline_directions_car_filled_white_24dp);
+            }
+            if (position == 2) {
+                tab.setIcon(R.drawable.ic_mountain_24);
+            }
+            if (position == 3) {
+                tab.setIcon(R.drawable.baseline_face_black_24dp);
+            }
+        })).attach();
     }
+
 }
