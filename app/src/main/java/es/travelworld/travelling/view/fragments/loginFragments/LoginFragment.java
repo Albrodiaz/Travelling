@@ -127,6 +127,7 @@ public class LoginFragment extends Fragment {
             startActivity(new Intent(requireContext(), HomeActivity.class)
                     .putExtra("UserName", currentUser.getUserName())
                     .putExtra("UserSurname", currentUser.getUserPassword()));
+            requireActivity().finish();
         } else {
             showAlert();
         }
