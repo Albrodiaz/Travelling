@@ -1,4 +1,4 @@
-package es.travelworld.travelling.view.fragments;
+package es.travelworld.travelling.view.fragments.loginFragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -37,13 +37,6 @@ public class LoginFragment extends Fragment {
     private User currentUser;
 
     public LoginFragment() {
-    }
-
-    public static LoginFragment newInstance() {
-        LoginFragment fragment = new LoginFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -154,7 +147,7 @@ public class LoginFragment extends Fragment {
 
     private void initRegisterFragment() {
         requireActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainer, RegisterFragment.newInstance(), "RegisterFragment")
+                .replace(R.id.fragmentContainer, new RegisterFragment(), "RegisterFragment")
                 .addToBackStack(null)
                 .commitAllowingStateLoss();
     }

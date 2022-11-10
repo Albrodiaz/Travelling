@@ -1,4 +1,4 @@
-package es.travelworld.travelling.view.fragments;
+package es.travelworld.travelling.view.fragments.loginFragments;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static es.travelworld.travelling.Constants.REQUEST_IMAGE_CAPTURE;

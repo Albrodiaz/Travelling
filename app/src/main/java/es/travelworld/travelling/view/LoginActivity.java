@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.Objects;
 
 import es.travelworld.travelling.databinding.ActivityLoginBinding;
-import es.travelworld.travelling.view.fragments.LoginFragment;
+import es.travelworld.travelling.view.fragments.loginFragments.LoginFragment;
 import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {
@@ -42,10 +42,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initLoginFragment() {
-        Fragment loginFragment = new LoginFragment();
         getSupportFragmentManager().beginTransaction()
-                .replace(binding.fragmentContainer.getId(), loginFragment, TAG_LOGINFRAGMENT)
-                .addToBackStack(null)
+                .replace(binding.fragmentContainer.getId(), new LoginFragment(), TAG_LOGINFRAGMENT)
                 .commitAllowingStateLoss();
     }
 

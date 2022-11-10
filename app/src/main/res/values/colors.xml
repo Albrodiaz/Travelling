@@ -18,6 +18,7 @@
     <color name="purple_pastel">#DEC7EF</color>
     <color name="yellow_pastel">#F6F2B3</color>
     <color name="pink_pastel">#E6B8D9</color>
+    <color name="orange_pastel">#FEE2D4</color>
     <!-- Register Activity Colors -->
     <color name="primaryColor">#009688</color>
     <color name="primaryLightColor">#52c7b8</color>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange_pastel"
+    android:paddingHorizontal="24dp"
+    android:paddingTop="59dp"
+    tools:context=".view.fragments.onboardingfragments.FragmentOnboardingSecond">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ob2Title"
+        style="@style/OnBoardingTitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/findMatch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/ob2Description"
+        style="@style/OnBoardingDescriptionStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/matchHelp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ob2Title" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ob2Image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ob2Description"
+        app:srcCompat="@drawable/viewpager_2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ob2SktipBtn"
+        style="@style/obSkipBtn"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/skip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ob2NextBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ob2Image"
+        app:strokeColor="@color/grey_dark"
+        app:strokeWidth="1dp" />
+
+    <Button
+        android:id="@+id/ob2NextBtn"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="12dp"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="@id/ob2SktipBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@id/ob2SktipBtn"
+        app:layout_constraintTop_toTopOf="@id/ob2SktipBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

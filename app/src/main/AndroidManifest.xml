@@ -18,26 +18,26 @@
 
         <activity
             android:name=".view.LoginActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Travelling">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
             android:name=".view.HomeActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".view.InfoActivity"
-            android:exported="false"
+            android:name=".view.OnBoardActivity"
+            android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.InfoActivity">
+            android:theme="@style/Theme.OnboardingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

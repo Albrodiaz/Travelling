@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey_dark"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:weightSum="1">
 
@@ -15,8 +16,10 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/ob1Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:text="@string/title"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -24,6 +27,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/ob1Description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -35,6 +39,7 @@
             android:textSize="16sp" />
 
         <ImageView
+            android:id="@+id/ob1Image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="Main Image"
@@ -49,7 +54,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/nextButton"
+            android:id="@+id/ob2NextBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center"

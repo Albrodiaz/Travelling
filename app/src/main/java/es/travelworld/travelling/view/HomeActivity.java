@@ -10,15 +10,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.ActivityHomeBinding;
-import es.travelworld.travelling.domain.User;
-import es.travelworld.travelling.view.fragments.CarFragment;
-import es.travelworld.travelling.view.viewmodels.RegisterViewModel;
+import es.travelworld.travelling.view.fragments.loginFragments.CarFragment;
 
 public class HomeActivity extends AppCompatActivity {
 

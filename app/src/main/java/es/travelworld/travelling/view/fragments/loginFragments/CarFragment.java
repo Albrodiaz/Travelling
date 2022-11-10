@@ -1,4 +1,4 @@
-package es.travelworld.travelling.view.fragments;
+package es.travelworld.travelling.view.fragments.loginFragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

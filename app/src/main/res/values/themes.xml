@@ -40,7 +40,12 @@
 
     <!-- OnBoarding Activity Theme -->
     <style name="Theme.InfoActivity" parent="Theme.Travelling">
-        <item name="android:statusBarColor">@color/pastel</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.OnboardingActivity</item>
+        <item name="android:statusBarColor">@color/orange_pastel</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="ThemeOverlay.MaterialComponents.OnboardingActivity" parent="">
+        <item name="colorPrimary">@color/black</item>
     </style>
 </resources>
