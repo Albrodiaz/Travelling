@@ -16,6 +16,10 @@ public class CarFragment extends Fragment {
 
     public CarFragment() { }
 
+    public static CarFragment newInstance() {
+        return new CarFragment();
+    }
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

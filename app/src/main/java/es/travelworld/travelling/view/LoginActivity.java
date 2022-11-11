@@ -42,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initLoginFragment() {
         getSupportFragmentManager().beginTransaction()
-                .replace(binding.fragmentContainer.getId(), new LoginFragment(), TAG_LOGINFRAGMENT)
+                .replace(binding.fragmentContainer.getId(), LoginFragment.newInstance(), TAG_LOGINFRAGMENT)
+                .addToBackStack(null)
                 .commitAllowingStateLoss();
     }
 

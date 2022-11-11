@@ -41,14 +41,10 @@ public class RegisterFragment extends Fragment {
     private LoginViewModel loginViewModel;
     private RegisterViewModel registerViewModel;
 
-    public RegisterFragment() {
-    }
+    public RegisterFragment() { }
 
     public static RegisterFragment newInstance() {
-        RegisterFragment fragment = new RegisterFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
+        return new RegisterFragment();
     }
 
     @Override
@@ -70,9 +66,9 @@ public class RegisterFragment extends Fragment {
         loginViewModel.setFragmentSelected(this);
     }
 
+    //Aplicamos tema al fragment
     @NonNull
     @Override
-    //Método para aplicar tema al Fragment
     public LayoutInflater onGetLayoutInflater(@Nullable Bundle savedInstanceState) {
         LayoutInflater inflater = super.onGetLayoutInflater(savedInstanceState);
         Context contextTheme = new ContextThemeWrapper(requireContext(), R.style.Theme_RegisterActivity);

@@ -38,15 +38,10 @@ public class LoginFragment extends Fragment {
     private RegisterViewModel registerViewModel;
     private User currentUser;
 
-    public LoginFragment() {
-    }
+    public LoginFragment() { }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            Toast.makeText(requireContext(), getArguments().toString(), Toast.LENGTH_SHORT).show();
-        }
+    public static LoginFragment newInstance() {
+        return new LoginFragment();
     }
 
     @Override
@@ -67,6 +62,7 @@ public class LoginFragment extends Fragment {
         listeners();
     }
 
+    //Aplicamos tema al fragment
     @NonNull
     @Override
     public LayoutInflater onGetLayoutInflater(@Nullable Bundle savedInstanceState) {

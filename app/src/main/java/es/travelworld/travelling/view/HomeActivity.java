@@ -23,7 +23,6 @@ import es.travelworld.travelling.view.fragments.loginFragments.CarFragment;
 public class HomeActivity extends AppCompatActivity {
 
     ActivityHomeBinding binding;
-    Fragment carFragment = new CarFragment();
     String name, surname;
 
     @Override
@@ -54,7 +53,9 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(new Intent(Intent.ACTION_VIEW, web));
                     return true;
                 case R.id.itemCar:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.homeContainer, carFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.homeContainer, CarFragment.newInstance())
+                            .addToBackStack(null)
+                            .commit();
                     return true;
                 default:
                     Toast.makeText(getApplicationContext(), "Algo ha fallado", Toast.LENGTH_SHORT).show();
@@ -82,5 +83,4 @@ public class HomeActivity extends AppCompatActivity {
             }
         })).attach();
     }
-
 }
