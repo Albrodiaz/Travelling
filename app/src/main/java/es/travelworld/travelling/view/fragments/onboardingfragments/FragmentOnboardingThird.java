@@ -6,13 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import es.travelworld.travelling.databinding.FragmentOnboardingThirdBinding;
 import es.travelworld.travelling.view.LoginActivity;
 
 public class FragmentOnboardingThird extends Fragment {
-    public static final String ARG_OBTHIRDFRAGM = "obThirdFragment";
 
     FragmentOnboardingThirdBinding binding;
 
@@ -23,7 +23,7 @@ public class FragmentOnboardingThird extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentOnboardingThirdBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();

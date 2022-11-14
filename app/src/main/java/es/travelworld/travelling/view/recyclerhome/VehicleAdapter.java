@@ -13,7 +13,7 @@ import es.travelworld.travelling.domain.Vehicle;
 
 public class VehicleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<Vehicle> vehicles;
+    private final List<Vehicle> vehicles;
 
     public VehicleAdapter(List<Vehicle> vehicles) {
         this.vehicles = vehicles;

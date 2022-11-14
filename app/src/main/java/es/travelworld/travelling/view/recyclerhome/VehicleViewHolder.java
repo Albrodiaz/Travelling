@@ -1,7 +1,6 @@
 package es.travelworld.travelling.view.recyclerhome;
 
 import android.graphics.drawable.Drawable;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.ColorRes;

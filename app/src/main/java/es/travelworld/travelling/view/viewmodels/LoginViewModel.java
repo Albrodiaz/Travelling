@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class LoginViewModel extends ViewModel {
-    //Toolbar
+
     private final MutableLiveData<Fragment> fragmentSelected = new MutableLiveData<>();
 
     public LiveData<Fragment> getFragmentSelected() {

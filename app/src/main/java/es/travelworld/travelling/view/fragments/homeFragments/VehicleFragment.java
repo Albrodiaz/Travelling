@@ -11,12 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentHome1Binding;
-import es.travelworld.travelling.domain.Vehicle;
 import es.travelworld.travelling.view.recyclerhome.VehicleAdapter;
 import es.travelworld.travelling.view.viewmodels.VehicleViewModel;
 
@@ -50,8 +46,6 @@ public class VehicleFragment extends Fragment {
     private void initRecyclerVehicles() {
         binding.rvTransport.setHasFixedSize(true);
         binding.rvTransport.setLayoutManager(new LinearLayoutManager(requireContext()));
-        vehicleViewModel.getVehicles().observe(getViewLifecycleOwner(), vehicles -> {
-            binding.rvTransport.setAdapter(new VehicleAdapter(vehicles));
-        });
+        vehicleViewModel.getVehicles().observe(getViewLifecycleOwner(), vehicles -> binding.rvTransport.setAdapter(new VehicleAdapter(vehicles)));
     }
 }
