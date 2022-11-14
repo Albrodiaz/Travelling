@@ -31,4 +31,14 @@
     <color name="background_color">#CFFFF6</color>
     <color name="inputTextBackground">#D1EEE6</color>
     <color name="borderColor">#4C4C4C</color>
+    <!-- Items Colors -->
+    <color name="classicColor">#B7784F</color>
+    <color name="sportColor">#5CB4F7</color>
+    <color name="flyingColor">#8380C4</color>
+    <color name="electricColor">#2A3640</color>
+    <color name="motorhomeColor">#7CB0AA</color>
+    <color name="pickupColor">#AE8E71</color>
+    <color name="airplaneColor">#A54D46</color>
+    <color name="busColor">#E5CA69</color>
+
 </resources>

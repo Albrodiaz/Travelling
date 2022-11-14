@@ -1,13 +1,9 @@
 package es.travelworld.travelling.view.fragments.homeFragments;
 
-import android.widget.EditText;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import es.travelworld.travelling.R;
 import es.travelworld.travelling.view.HomeActivity;
 
 public class HomePageAdapter extends FragmentStateAdapter {
@@ -24,7 +20,7 @@ public class HomePageAdapter extends FragmentStateAdapter {
                 fragment = HomeFragment.newInstance();
                 break;
             case 1:
-                fragment = HomeFragment1.newInstance();
+                fragment = VehicleFragment.newInstance();
                 break;
             case 2:
                 fragment = HomeFragment2.newInstance();
