@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Objects;
+
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.ItemTransportBinding;
 import es.travelworld.travelling.domain.Vehicle;
@@ -21,7 +23,7 @@ public class VehicleViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void render(Vehicle vehicle) {
-        binding.transportTitle.setText(vehicle.getType());
+        setCarTitle(vehicle.getType(), vehicle);
         binding.transportPrice.setText(itemView.getContext().getString(R.string.price, vehicle.getPrice()));
         binding.transportImage.setImageDrawable(ContextCompat.getDrawable(itemView.getContext(), vehicle.getImage()));
         setItemBackground(vehicle.getColor());
@@ -37,5 +39,14 @@ public class VehicleViewHolder extends RecyclerView.ViewHolder {
         Toast.makeText(binding.vehicleContainer.getContext(),
                 itemView.getContext().getString(R.string.transport, vehicle.getType()),
                 Toast.LENGTH_SHORT).show();
+    }
+
+    private void setCarTitle(String text, Vehicle vehicle) {
+        if (Objects.equals(text, "Classic") || Objects.equals(text, "Sport")
+                || Objects.equals(text, "Flying") || Objects.equals(text, "Electric")) {
+            binding.transportTitle.setText(itemView.getContext().getString(R.string.typeCar, vehicle.getType()));
+        } else {
+            binding.transportTitle.setText(vehicle.getType());
+        }
     }
 }
