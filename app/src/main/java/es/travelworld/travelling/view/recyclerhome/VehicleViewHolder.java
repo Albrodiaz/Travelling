@@ -6,7 +6,6 @@ import android.widget.Toast;
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import es.travelworld.travelling.R;
@@ -25,13 +24,15 @@ public class VehicleViewHolder extends RecyclerView.ViewHolder {
         binding.transportTitle.setText(vehicle.getType());
         binding.transportPrice.setText(itemView.getContext().getString(R.string.price, vehicle.getPrice()));
         binding.transportImage.setImageDrawable(ContextCompat.getDrawable(itemView.getContext(), vehicle.getImage()));
-        createTint(vehicle.getColor());
-        binding.vehicleContainer.setOnClickListener(v -> Toast.makeText(binding.vehicleContainer.getContext(), vehicle.getType(), Toast.LENGTH_SHORT).show());
+        setItemBackground(vehicle.getColor());
+        binding.vehicleContainer.setOnClickListener(v ->
+                Toast.makeText(binding.vehicleContainer.getContext(),
+                        itemView.getContext().getString(R.string.transport, vehicle.getType()),
+                        Toast.LENGTH_SHORT).show());
     }
 
-    private void createTint(@ColorRes int color) {
-        Drawable tintDrawable = binding.itemBackground.getBackground();
-        tintDrawable = DrawableCompat.wrap(tintDrawable);
-        DrawableCompat.setTint(tintDrawable, ContextCompat.getColor(itemView.getContext(), color));
+    private void setItemBackground(@ColorRes int color) {
+        Drawable itemBackground = binding.itemBackground.getBackground();
+        itemBackground.setTint(ContextCompat.getColor(itemView.getContext(), color));
     }
 }

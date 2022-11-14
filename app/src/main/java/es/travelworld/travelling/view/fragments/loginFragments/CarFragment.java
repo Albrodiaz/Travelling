@@ -26,6 +26,8 @@ public class CarFragment extends Fragment {
         binding = FragmentCarBinding.inflate(getLayoutInflater(), container, false);
         View view = binding.getRoot();
 
+        binding.closeFragment.setOnClickListener(v-> getParentFragmentManager().popBackStack());
+
         return view;
 
     }
