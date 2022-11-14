@@ -63,6 +63,7 @@ public class VehicleFragment extends Fragment {
     private void initRecyclerVehicles() {
         binding.rvTransport.setHasFixedSize(true);
         binding.rvTransport.setLayoutManager(new LinearLayoutManager(requireContext()));
-        vehicleViewModel.getVehicles().observe(getViewLifecycleOwner(), vehicles -> binding.rvTransport.setAdapter(new VehicleAdapter(vehicles)));
+        vehicleViewModel.getVehicles().observe(getViewLifecycleOwner(),
+                vehicles -> binding.rvTransport.setAdapter(new VehicleAdapter(vehicles)));
     }
 }

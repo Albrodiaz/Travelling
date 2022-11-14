@@ -94,6 +94,7 @@ public class HomeActivity extends AppCompatActivity {
         loginViewModel.getFragmentSelected().observe(this, fragment -> {
             if (Objects.equals(fragment.getTag(), "f0")) {
                 binding.homeToolbar.setTitle(R.string.home);
+                binding.homeToolbar.getMenu().clear();
                 binding.homeToolbar.inflateMenu(R.menu.home_menu);
             } else {
                 binding.homeToolbar.setTitle(R.string.vehicle_title);
