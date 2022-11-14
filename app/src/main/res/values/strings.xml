@@ -48,7 +48,7 @@
     <string name="matchHelp">We´ve helped millions across the nation find their perfect match… and you´re next!</string>
     <string name="skip">Skip</string>
     <string name="perfectRoomate">Find the Perfect Roommate</string>
-    <string name="price">$%.2f/day</string>
+    <string name="price">$%.0f/day</string>
     <string name="transport">Ha elegido: %s</string>
     <string name="typeCar">%s Car</string>
 </resources>

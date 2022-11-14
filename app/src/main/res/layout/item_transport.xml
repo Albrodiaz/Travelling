@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="8dp"
-    app:strokeWidth="0dp"
-    app:cardElevation="0dp"
-    android:layout_margin="8dp">
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    style="@style/vehicleCardStyle">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/vehicleContainer"
@@ -30,14 +27,13 @@
             android:layout_marginStart="24dp"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
             tools:text="tipo de vehículo"
-            android:inputType="textCapWords"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/transportPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginStart="24dp"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             tools:text="Precio"
