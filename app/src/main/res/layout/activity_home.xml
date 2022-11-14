@@ -19,7 +19,6 @@
             android:id="@+id/homeToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/home_menu"
             app:navigationIcon="@drawable/baseline_menu_white_24dp"
             app:title="@string/home" />
     </com.google.android.material.appbar.AppBarLayout>

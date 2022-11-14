@@ -9,18 +9,23 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.util.Objects;
+
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.ActivityHomeBinding;
 import es.travelworld.travelling.view.fragments.homeFragments.HomePageAdapter;
 import es.travelworld.travelling.view.fragments.loginFragments.CarFragment;
+import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 
 public class HomeActivity extends AppCompatActivity {
 
+    LoginViewModel loginViewModel;
     ActivityHomeBinding binding;
     String name, surname;
 
@@ -29,7 +34,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
+        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         setContentView(view);
+        configToolbar();
         setAdapter();
         getUserData(view);
         listeners();
@@ -81,5 +88,17 @@ public class HomeActivity extends AppCompatActivity {
                 tab.setIcon(R.drawable.baseline_face_black_24dp);
             }
         })).attach();
+    }
+
+    private void configToolbar() {
+        loginViewModel.getFragmentSelected().observe(this, fragment -> {
+            if (Objects.equals(fragment.getTag(), "f0")) {
+                binding.homeToolbar.setTitle(R.string.home);
+                binding.homeToolbar.inflateMenu(R.menu.home_menu);
+            } else {
+                binding.homeToolbar.setTitle(R.string.vehicle_title);
+                binding.homeToolbar.getMenu().clear();
+            }
+        });
     }
 }
