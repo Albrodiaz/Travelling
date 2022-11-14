@@ -25,14 +25,17 @@ public class VehicleViewHolder extends RecyclerView.ViewHolder {
         binding.transportPrice.setText(itemView.getContext().getString(R.string.price, vehicle.getPrice()));
         binding.transportImage.setImageDrawable(ContextCompat.getDrawable(itemView.getContext(), vehicle.getImage()));
         setItemBackground(vehicle.getColor());
-        binding.vehicleContainer.setOnClickListener(v ->
-                Toast.makeText(binding.vehicleContainer.getContext(),
-                        itemView.getContext().getString(R.string.transport, vehicle.getType()),
-                        Toast.LENGTH_SHORT).show());
+        binding.vehicleContainer.setOnClickListener(v -> showToast(vehicle));
     }
 
     private void setItemBackground(@ColorRes int color) {
         Drawable itemBackground = binding.itemBackground.getBackground();
         itemBackground.setTint(ContextCompat.getColor(itemView.getContext(), color));
+    }
+
+    private void showToast(Vehicle vehicle) {
+        Toast.makeText(binding.vehicleContainer.getContext(),
+                itemView.getContext().getString(R.string.transport, vehicle.getType()),
+                Toast.LENGTH_SHORT).show();
     }
 }
