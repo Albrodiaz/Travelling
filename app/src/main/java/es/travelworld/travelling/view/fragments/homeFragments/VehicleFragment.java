@@ -54,12 +54,6 @@ public class VehicleFragment extends Fragment {
         loginViewModel.setFragmentSelected(this);
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-
-    }
-
     private void initRecyclerVehicles() {
         binding.rvTransport.setHasFixedSize(true);
         binding.rvTransport.setLayoutManager(new LinearLayoutManager(requireContext()));
