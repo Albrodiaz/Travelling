@@ -25,9 +25,8 @@ import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 
 public class HomeActivity extends AppCompatActivity {
 
-    LoginViewModel loginViewModel;
-    ActivityHomeBinding binding;
-    String name, surname;
+    private LoginViewModel loginViewModel;
+    private ActivityHomeBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +43,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private void getUserData(View v) {
         if (getIntent().getExtras() != null) {
-            name = getIntent().getStringExtra("UserName");
-            surname = getIntent().getStringExtra("UserSurname");
+            String name = getIntent().getStringExtra("UserName");
+            String surname = getIntent().getStringExtra("UserSurname");
             Snackbar.make(v, getString(R.string.welcome_home, name, surname), Snackbar.LENGTH_SHORT).show();
         }
     }
