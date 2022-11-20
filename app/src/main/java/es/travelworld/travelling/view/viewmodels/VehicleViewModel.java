@@ -14,6 +14,10 @@ import es.travelworld.travelling.domain.Vehicle;
 public class VehicleViewModel extends ViewModel {
     private VehicleProvider vehicleProvider;
 
+    public VehicleViewModel(VehicleProvider vehicleProvider) {
+        this.vehicleProvider = vehicleProvider;
+    }
+
     private final MutableLiveData<List<Vehicle>> vehicles = new MutableLiveData<>();
 
     public LiveData<List<Vehicle>> getVehicles() {
@@ -22,10 +26,6 @@ public class VehicleViewModel extends ViewModel {
 
     public void loadVehicles() {
         vehicles.setValue(vehicleProvider.getVehicles());
-    }
-
-    public VehicleViewModel(VehicleProvider vehicleProvider) {
-        this.vehicleProvider = vehicleProvider;
     }
 
     public static class Factory implements ViewModelProvider.Factory {
