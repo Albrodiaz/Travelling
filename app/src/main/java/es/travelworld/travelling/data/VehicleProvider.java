@@ -7,7 +7,7 @@ import es.travelworld.travelling.R;
 import es.travelworld.travelling.domain.Vehicle;
 
 public class VehicleProvider {
-    public static List<Vehicle> getVehicles() {
+    public List<Vehicle> getVehicles() {
         List<Vehicle> vehicles = new ArrayList<>();
         vehicles.add(new Vehicle("Classic", 34f, R.color.classicColor, R.drawable.classic_car));
         vehicles.add(new Vehicle("Sport", 55f, R.color.sportColor, R.drawable.sport_car));

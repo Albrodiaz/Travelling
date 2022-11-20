@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStore;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import es.travelworld.travelling.R;
@@ -42,7 +44,7 @@ public class VehicleFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentVehicleBinding.bind(view);
-        vehicleViewModel = new ViewModelProvider(requireActivity()).get(VehicleViewModel.class);
+        vehicleViewModel = new ViewModelProvider((ViewModelStoreOwner) getViewLifecycleOwner(), new VehicleViewModel.Factory()).get(VehicleViewModel.class);
         loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
         vehicleViewModel.loadVehicles();
         initRecyclerVehicles();
