@@ -2,6 +2,7 @@ package es.travelworld.travelling.view.fragments.loginFragments;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static es.travelworld.travelling.Constants.REQUEST_IMAGE_CAPTURE;
+import static es.travelworld.travelling.Constants.TAG_REGISTERFRAGMENT;
 import static es.travelworld.travelling.Constants.TERMSWEB;
 
 import android.content.ActivityNotFoundException;
@@ -17,6 +18,8 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -25,6 +28,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import java.util.Objects;
 
@@ -63,7 +67,6 @@ public class RegisterFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
         registerViewModel = new ViewModelProvider(requireActivity()).get(RegisterViewModel.class);
-        loginViewModel.setFragmentSelected(this);
     }
 
     //Aplicamos tema al fragment
@@ -76,6 +79,8 @@ public class RegisterFragment extends Fragment {
     }
 
     private void listeners() {
+        binding.registerToolbar.setNavigationOnClickListener(v -> requireActivity().onBackPressed());
+
         binding.etName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

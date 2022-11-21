@@ -1,7 +1,5 @@
 package es.travelworld.travelling.view.fragments.loginFragments;
 
-import static es.travelworld.travelling.Constants.TAG_REGISTERFRAGMENT;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -37,7 +36,8 @@ public class LoginFragment extends Fragment {
     private RegisterViewModel registerViewModel;
     private User currentUser;
 
-    public LoginFragment() { }
+    public LoginFragment() {
+    }
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -55,7 +55,6 @@ public class LoginFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
         registerViewModel = new ViewModelProvider(requireActivity()).get(RegisterViewModel.class);
-        loginViewModel.setFragmentSelected(this);
         getUserData();
         listeners();
     }
@@ -70,7 +69,10 @@ public class LoginFragment extends Fragment {
     }
 
     private void listeners() {
-        binding.createAccount.setOnClickListener(v -> initRegisterFragment());
+        binding.createAccount.setOnClickListener(v -> {
+            Navigation.findNavController(requireView())
+                    .navigate(R.id.action_loginFragment_to_registerFragment);
+        });
 
         binding.loginButton.setOnClickListener(v -> checkUserData(Objects.requireNonNull(binding.etLoginUser.getText()).toString(),
                 Objects.requireNonNull(binding.etLoginPassword.getText()).toString()));
@@ -140,12 +142,5 @@ public class LoginFragment extends Fragment {
     private boolean isButtonEnabled() {
         return validations.isNotEmptyField(binding.etLoginUser)
                 && validations.isNotEmptyField(binding.etLoginPassword);
-    }
-
-    private void initRegisterFragment() {
-        requireActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragmentContainer, new RegisterFragment(), TAG_REGISTERFRAGMENT)
-                .addToBackStack(null)
-                .commitAllowingStateLoss();
     }
 }

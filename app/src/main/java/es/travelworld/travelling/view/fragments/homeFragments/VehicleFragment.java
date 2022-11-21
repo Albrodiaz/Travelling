@@ -47,12 +47,6 @@ public class VehicleFragment extends Fragment {
         initRecyclerVehicles();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        loginViewModel.setFragmentSelected(this);
-    }
-
     private void initRecyclerVehicles() {
         binding.rvTransport.setHasFixedSize(true);
         binding.rvTransport.setLayoutManager(new LinearLayoutManager(requireContext()));

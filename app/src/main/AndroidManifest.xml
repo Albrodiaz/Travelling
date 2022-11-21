@@ -32,13 +32,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
-        <activity
-            android:name=".view.OnBoardActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.OnboardingActivity">
-
-        </activity>
     </application>
 
 </manifest>

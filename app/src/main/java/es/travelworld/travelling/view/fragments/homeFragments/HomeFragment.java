@@ -37,10 +37,4 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.bind(view);
         loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        loginViewModel.setFragmentSelected(this);
-    }
 }

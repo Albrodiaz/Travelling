@@ -1,15 +1,13 @@
-package es.travelworld.travelling.view.fragments.onboardingfragments;
+package es.travelworld.travelling.view.fragments.loginFragments;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import es.travelworld.travelling.view.OnBoardActivity;
+public class LoginPageAdapter extends FragmentStateAdapter {
 
-public class OnBoardPageAdapter extends FragmentStateAdapter {
-
-    public OnBoardPageAdapter(@NonNull OnBoardActivity fragmentActivity) {
-        super(fragmentActivity);
+    public LoginPageAdapter(@NonNull Fragment fragment) {
+        super(fragment);
     }
 
     @NonNull

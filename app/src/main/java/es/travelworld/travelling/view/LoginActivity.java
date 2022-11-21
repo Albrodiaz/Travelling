@@ -1,53 +1,33 @@
 package es.travelworld.travelling.view;
 
-import static es.travelworld.travelling.Constants.TAG_LOGINFRAGMENT;
-
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
-
-import java.util.Objects;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import es.travelworld.travelling.databinding.ActivityLoginBinding;
-import es.travelworld.travelling.view.fragments.loginFragments.LoginFragment;
 import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
-    private LoginViewModel loginViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
-        initLoginFragment();
-        listeners();
-        hideToolbar();
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        initNavigation();
     }
 
-    private void hideToolbar() {
-        loginViewModel.getFragmentSelected().observe(this, fragment -> {
-            if (Objects.equals(fragment.getTag(), TAG_LOGINFRAGMENT)) {
-                binding.registerAppbarLayout.setVisibility(View.GONE);
-            } else {
-                binding.registerAppbarLayout.setVisibility(View.VISIBLE);
-            }
-        });
-    }
-
-    private void initLoginFragment() {
-        getSupportFragmentManager().beginTransaction()
-                .replace(binding.fragmentContainer.getId(), LoginFragment.newInstance(), TAG_LOGINFRAGMENT)
-                .addToBackStack(null)
-                .commitAllowingStateLoss();
-    }
-
-    private void listeners() {
-        binding.registerToolbar.setNavigationOnClickListener(v -> super.onBackPressed());
+    private void initNavigation() {
+        NavHostFragment loginNavHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(binding.navHostFragment.getId());
+        NavController loginNavController = loginNavHostFragment.getNavController();
     }
 }

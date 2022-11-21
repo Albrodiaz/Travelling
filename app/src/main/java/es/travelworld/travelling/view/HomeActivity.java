@@ -35,7 +35,6 @@ public class HomeActivity extends AppCompatActivity {
         View view = binding.getRoot();
         loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         setContentView(view);
-        configToolbar();
         setAdapter();
         getUserData(view);
         listeners();
@@ -87,18 +86,5 @@ public class HomeActivity extends AppCompatActivity {
                 tab.setIcon(R.drawable.baseline_face_black_24dp);
             }
         })).attach();
-    }
-
-    private void configToolbar() {
-        loginViewModel.getFragmentSelected().observe(this, fragment -> {
-            if (Objects.equals(fragment.getTag(), "f0")) {
-                binding.homeToolbar.setTitle(R.string.home);
-                binding.homeToolbar.getMenu().clear();
-                binding.homeToolbar.inflateMenu(R.menu.home_menu);
-            } else {
-                binding.homeToolbar.setTitle(R.string.vehicle_title);
-                binding.homeToolbar.getMenu().clear();
-            }
-        });
     }
 }
