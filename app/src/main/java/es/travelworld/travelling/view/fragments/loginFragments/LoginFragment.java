@@ -1,7 +1,6 @@
 package es.travelworld.travelling.view.fragments.loginFragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -69,10 +68,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void listeners() {
-        binding.createAccount.setOnClickListener(v -> {
-            Navigation.findNavController(requireView())
-                    .navigate(R.id.action_loginFragment_to_registerFragment);
-        });
+        binding.createAccount.setOnClickListener(v -> Navigation.findNavController(requireView())
+                .navigate(R.id.action_loginFragment_to_registerFragment));
 
         binding.loginButton.setOnClickListener(v -> checkUserData(Objects.requireNonNull(binding.etLoginUser.getText()).toString(),
                 Objects.requireNonNull(binding.etLoginPassword.getText()).toString()));
@@ -117,13 +114,12 @@ public class LoginFragment extends Fragment {
     }
 
     private void checkUserData(String name, String password) {
+
         if (currentUser != null
                 && Objects.equals(currentUser.getUserName(), name)
                 && Objects.equals(currentUser.getUserPassword(), password)) {
-            startActivity(new Intent(requireContext(), HomeActivity.class)
-                    .putExtra("UserName", currentUser.getUserName())
-                    .putExtra("UserSurname", currentUser.getUserPassword()));
-            requireActivity().finish();
+            Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
+                    .navigate(R.id.action_loginFragment_to_homeActivity);
         } else {
             showAlert();
         }

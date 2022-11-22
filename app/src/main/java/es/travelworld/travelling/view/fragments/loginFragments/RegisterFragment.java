@@ -79,7 +79,7 @@ public class RegisterFragment extends Fragment {
     }
 
     private void listeners() {
-        binding.registerToolbar.setNavigationOnClickListener(v -> requireActivity().onBackPressed());
+        binding.registerToolbar.setNavigationOnClickListener(v -> Navigation.findNavController(requireView()).navigateUp());
 
         binding.etName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -191,7 +191,7 @@ public class RegisterFragment extends Fragment {
 
     private void register(String name, String surname) {
         registerViewModel.createUser(name, surname);
-        getParentFragmentManager().popBackStack();
+        Navigation.findNavController(requireView()).navigateUp();
     }
 
     private boolean isButtonEnabled() {

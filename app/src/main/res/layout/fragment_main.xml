@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.fragments.homeFragments.MainFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/homeAppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/homeToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/home_menu"
+            app:navigationIcon="@drawable/baseline_menu_white_24dp"
+            app:title="@string/home" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bluepastel"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="@color/blue_pastel"
+        app:layout_constraintBottom_toBottomOf="@id/homeTabLayout"
+        app:layout_constraintEnd_toStartOf="@id/purlplepastel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeAppBarLayout" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/purlplepastel"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="@color/purple_pastel"
+        app:layout_constraintBottom_toBottomOf="@id/homeTabLayout"
+        app:layout_constraintEnd_toStartOf="@id/pinkpastel"
+        app:layout_constraintStart_toEndOf="@id/bluepastel"
+        app:layout_constraintTop_toBottomOf="@id/homeAppBarLayout" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/pinkpastel"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="@color/pink_pastel"
+        app:layout_constraintBottom_toBottomOf="@id/homeTabLayout"
+        app:layout_constraintEnd_toStartOf="@id/yellowpastel"
+        app:layout_constraintStart_toEndOf="@id/purlplepastel"
+        app:layout_constraintTop_toBottomOf="@id/homeAppBarLayout" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/yellowpastel"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="@color/yellow_pastel"
+        app:layout_constraintBottom_toBottomOf="@id/homeTabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pinkpastel"
+        app:layout_constraintTop_toBottomOf="@id/homeAppBarLayout" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/homeTabLayout"
+        style="@style/Widget.App.TabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeAppBarLayout">
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/homeViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeTabLayout"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

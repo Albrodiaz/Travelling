@@ -1,4 +1,4 @@
-package es.travelworld.travelling.view.fragments.homeFragments;
+package es.travelworld.travelling.view.fragments.homeFragments.homeviewpager;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

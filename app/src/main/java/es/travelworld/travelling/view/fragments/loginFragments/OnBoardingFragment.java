@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import es.travelworld.travelling.databinding.FragmentOnBoardingBinding;
+import es.travelworld.travelling.view.fragments.adapters.LoginPageAdapter;
 
 public class OnBoardingFragment extends Fragment {
 

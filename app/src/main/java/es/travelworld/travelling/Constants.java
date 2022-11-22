@@ -10,4 +10,6 @@ public abstract class Constants {
     public static final String TAG_ONBOARDINGFIRST = "ObFirstFragment";
     public static final String TAG_ONBOARDINGSECOND = "ObSecondFragment";
     public static final String TAG_ONBOARDINGTHIRD = "ObThirdFragment";
+    public static final int ICONCASTLE = R.id.iconCastle;
+    public static final int ICONCAR = R.id.itemCar;
 }

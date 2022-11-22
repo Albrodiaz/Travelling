@@ -1,4 +1,4 @@
-package es.travelworld.travelling.view.fragments.loginFragments;
+package es.travelworld.travelling.view.fragments.homeFragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,7 +26,7 @@ public class CarFragment extends Fragment {
         binding = FragmentCarBinding.inflate(getLayoutInflater(), container, false);
         View view = binding.getRoot();
 
-        binding.closeFragment.setOnClickListener(v-> getParentFragmentManager().popBackStack());
+        binding.closeFragment.setOnClickListener(v-> requireActivity().onBackPressed());
 
         return view;
 

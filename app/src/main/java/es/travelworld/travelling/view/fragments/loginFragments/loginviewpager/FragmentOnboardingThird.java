@@ -1,4 +1,4 @@
-package es.travelworld.travelling.view.fragments.loginFragments;
+package es.travelworld.travelling.view.fragments.loginFragments.loginviewpager;
 
 import android.content.Context;
 import android.os.Bundle;

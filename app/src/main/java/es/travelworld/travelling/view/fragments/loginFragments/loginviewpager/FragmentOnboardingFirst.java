@@ -1,4 +1,4 @@
-package es.travelworld.travelling.view.fragments.loginFragments;
+package es.travelworld.travelling.view.fragments.loginFragments.loginviewpager;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,33 +11,38 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
 import es.travelworld.travelling.R;
-import es.travelworld.travelling.databinding.FragmentOnboardingSecondBinding;
+import es.travelworld.travelling.databinding.FragmentOnboardingFirstBinding;
 import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 
-public class FragmentOnboardingSecond extends Fragment {
+public class FragmentOnboardingFirst extends Fragment {
 
-    private FragmentOnboardingSecondBinding binding;
+    private FragmentOnboardingFirstBinding binding;
     private LoginViewModel loginViewModel;
 
-    public FragmentOnboardingSecond() {
+    public FragmentOnboardingFirst() {
     }
 
-    public static FragmentOnboardingSecond newInstance() {
-        return new FragmentOnboardingSecond();
+    public static FragmentOnboardingFirst newInstance() {
+        return new FragmentOnboardingFirst();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentOnboardingSecondBinding.inflate(getLayoutInflater());
+        binding = FragmentOnboardingFirstBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         listeners();
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
     }
 
     @NonNull
@@ -48,22 +53,10 @@ public class FragmentOnboardingSecond extends Fragment {
         return inflater.cloneInContext(contextTheme);
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
-
-    }
-
     private void listeners() {
-
         binding.ob2NextBtn.setOnClickListener(v -> {
             ViewPager2 viewPager = requireActivity().findViewById(R.id.obViewPager);
-            viewPager.setCurrentItem(2);
+            viewPager.setCurrentItem(1);
         });
-
-        binding.ob2SktipBtn.setOnClickListener(v -> Navigation
-                .findNavController(requireView())
-                .navigate(R.id.action_onBoardingFragment_to_loginFragment));
     }
 }

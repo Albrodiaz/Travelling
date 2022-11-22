@@ -1,0 +1,80 @@
+package es.travelworld.travelling.view.fragments.homeFragments;
+
+import static es.travelworld.travelling.Constants.EURODISNEYWEB;
+import static es.travelworld.travelling.Constants.ICONCAR;
+import static es.travelworld.travelling.Constants.ICONCASTLE;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayoutMediator;
+
+import es.travelworld.travelling.R;
+import es.travelworld.travelling.databinding.FragmentMainBinding;
+import es.travelworld.travelling.view.fragments.adapters.HomePageAdapter;
+
+public class MainFragment extends Fragment {
+
+    private FragmentMainBinding binding;
+
+    public MainFragment() {
+
+    }
+
+    public static MainFragment newInstance() {
+        return new MainFragment();
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        binding = FragmentMainBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+        setAdapter();
+        listeners();
+
+        return view;
+    }
+
+    private void listeners() {
+        binding.homeToolbar.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case ICONCASTLE:
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(EURODISNEYWEB)));
+                case ICONCAR:
+                    Navigation.findNavController(binding.homeToolbar)
+                            .navigate(R.id.action_mainFragment_to_carFragment);
+            }
+            return true;
+        });
+    }
+
+    private void setAdapter() {
+        HomePageAdapter pageAdapter = new HomePageAdapter(this);
+        binding.homeViewPager.setAdapter(pageAdapter);
+        binding.homeViewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+        new TabLayoutMediator(binding.homeTabLayout, binding.homeViewPager, ((tab, position) -> {
+            if (position == 0) {
+                tab.setIcon(R.drawable.ic_baseline_camera_alt_24);
+            }
+            if (position == 1) {
+                tab.setIcon(R.drawable.baseline_directions_car_filled_white_24dp);
+            }
+            if (position == 2) {
+                tab.setIcon(R.drawable.ic_mountain_24);
+            }
+            if (position == 3) {
+                tab.setIcon(R.drawable.baseline_face_black_24dp);
+            }
+        })).attach();
+    }
+}

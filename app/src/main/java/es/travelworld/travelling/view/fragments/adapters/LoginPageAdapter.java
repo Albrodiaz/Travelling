@@ -1,8 +1,12 @@
-package es.travelworld.travelling.view.fragments.loginFragments;
+package es.travelworld.travelling.view.fragments.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import es.travelworld.travelling.view.fragments.loginFragments.loginviewpager.FragmentOnboardingFirst;
+import es.travelworld.travelling.view.fragments.loginFragments.loginviewpager.FragmentOnboardingSecond;
+import es.travelworld.travelling.view.fragments.loginFragments.loginviewpager.FragmentOnboardingThird;
 
 public class LoginPageAdapter extends FragmentStateAdapter {
 

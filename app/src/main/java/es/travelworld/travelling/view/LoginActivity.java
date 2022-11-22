@@ -15,6 +15,7 @@ import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
+    private NavController loginNavController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,6 @@ public class LoginActivity extends AppCompatActivity {
     private void initNavigation() {
         NavHostFragment loginNavHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(binding.navHostFragment.getId());
-        NavController loginNavController = loginNavHostFragment.getNavController();
+        loginNavController = loginNavHostFragment.getNavController();
     }
 }

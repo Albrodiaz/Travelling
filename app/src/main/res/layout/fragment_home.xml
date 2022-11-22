@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.fragments.homeFragments.HomeFragment">
+    tools:context=".view.fragments.homeFragments.homeviewpager.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
