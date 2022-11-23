@@ -7,12 +7,14 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import es.travelworld.travelling.databinding.FragmentCarBinding;
 
 public class CarFragment extends Fragment {
 
-    public CarFragment() { }
+    public CarFragment() {
+    }
 
     public static CarFragment newInstance() {
         return new CarFragment();
@@ -24,7 +26,8 @@ public class CarFragment extends Fragment {
         FragmentCarBinding binding = FragmentCarBinding.inflate(getLayoutInflater(), container, false);
         View view = binding.getRoot();
 
-        binding.closeFragment.setOnClickListener(v-> requireActivity().onBackPressed());
+        binding.closeFragment.setOnClickListener(v -> Navigation.findNavController(requireView())
+                .navigateUp());
 
         return view;
 

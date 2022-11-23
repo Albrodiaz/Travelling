@@ -1,5 +1,8 @@
 package es.travelworld.travelling.view.fragments.loginFragments;
 
+import static es.travelworld.travelling.Constants.KEY_PASSWORD;
+import static es.travelworld.travelling.Constants.KEY_USER;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
@@ -115,7 +118,7 @@ public class LoginFragment extends Fragment {
                 && Objects.equals(currentUser.getUserName(), name)
                 && Objects.equals(currentUser.getUserPassword(), password)) {
             Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-                    .navigate(R.id.action_loginFragment_to_homeActivity);
+                    .navigate(R.id.action_loginFragment_to_homeActivity, setData());
         } else {
             showAlert();
         }
@@ -134,5 +137,12 @@ public class LoginFragment extends Fragment {
     private boolean isButtonEnabled() {
         return validations.isNotEmptyField(binding.etLoginUser)
                 && validations.isNotEmptyField(binding.etLoginPassword);
+    }
+
+    private Bundle setData() {
+        Bundle bundle = new Bundle();
+        bundle.putString(KEY_USER, currentUser.getUserName());
+        bundle.putString(KEY_PASSWORD, currentUser.getUserPassword());
+        return bundle;
     }
 }
