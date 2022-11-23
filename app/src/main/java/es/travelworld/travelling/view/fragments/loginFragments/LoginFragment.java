@@ -68,9 +68,6 @@ public class LoginFragment extends Fragment {
 
     private void listeners() {
 
-        binding.getNew.setOnClickListener(v-> Navigation.findNavController(requireView())
-                .navigate(R.id.action_loginFragment_to_homeActivity));
-
         binding.createAccount.setOnClickListener(v -> Navigation.findNavController(requireView())
                 .navigate(R.id.action_loginFragment_to_registerFragment));
 
