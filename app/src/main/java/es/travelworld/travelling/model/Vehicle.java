@@ -1,4 +1,4 @@
-package es.travelworld.travelling.domain;
+package es.travelworld.travelling.model;
 
 public class Vehicle {
     String type;

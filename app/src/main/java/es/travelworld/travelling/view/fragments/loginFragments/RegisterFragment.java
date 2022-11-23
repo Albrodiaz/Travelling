@@ -32,7 +32,7 @@ import java.util.Objects;
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentRegisterBinding;
 import es.travelworld.travelling.utilities.Validation;
-import es.travelworld.travelling.view.viewmodels.RegisterViewModel;
+import es.travelworld.travelling.viewmodel.RegisterViewModel;
 
 public class RegisterFragment extends Fragment {
 

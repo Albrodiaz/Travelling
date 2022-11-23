@@ -24,9 +24,9 @@ import java.util.Objects;
 
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentLoginBinding;
-import es.travelworld.travelling.domain.User;
+import es.travelworld.travelling.model.User;
 import es.travelworld.travelling.utilities.Validation;
-import es.travelworld.travelling.view.viewmodels.RegisterViewModel;
+import es.travelworld.travelling.viewmodel.RegisterViewModel;
 
 public class LoginFragment extends Fragment {
 

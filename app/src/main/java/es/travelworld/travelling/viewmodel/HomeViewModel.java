@@ -1,4 +1,4 @@
-package es.travelworld.travelling.view.viewmodels;
+package es.travelworld.travelling.viewmodel;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;

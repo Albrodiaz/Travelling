@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import es.travelworld.travelling.databinding.ItemTransportBinding;
-import es.travelworld.travelling.domain.Vehicle;
+import es.travelworld.travelling.model.Vehicle;
 
 public class VehicleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

@@ -1,10 +1,10 @@
-package es.travelworld.travelling.view.viewmodels;
+package es.travelworld.travelling.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import es.travelworld.travelling.domain.User;
+import es.travelworld.travelling.model.User;
 
 public class RegisterViewModel extends ViewModel {
     private final MutableLiveData<User> currentUSer = new MutableLiveData<>();

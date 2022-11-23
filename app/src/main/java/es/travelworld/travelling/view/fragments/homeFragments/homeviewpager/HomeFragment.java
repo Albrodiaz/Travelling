@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import es.travelworld.travelling.R;
-import es.travelworld.travelling.view.viewmodels.HomeViewModel;
+import es.travelworld.travelling.viewmodel.HomeViewModel;
 
 public class HomeFragment extends Fragment {
 

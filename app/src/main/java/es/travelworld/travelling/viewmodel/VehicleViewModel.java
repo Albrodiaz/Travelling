@@ -1,4 +1,4 @@
-package es.travelworld.travelling.view.viewmodels;
+package es.travelworld.travelling.viewmodel;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.List;
 
 import es.travelworld.travelling.data.VehicleProvider;
-import es.travelworld.travelling.domain.Vehicle;
+import es.travelworld.travelling.model.Vehicle;
 
 public class VehicleViewModel extends ViewModel {
     private final VehicleProvider vehicleProvider;

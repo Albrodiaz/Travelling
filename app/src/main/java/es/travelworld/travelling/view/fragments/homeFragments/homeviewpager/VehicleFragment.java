@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentVehicleBinding;
 import es.travelworld.travelling.view.recyclerhome.VehicleAdapter;
-import es.travelworld.travelling.view.viewmodels.HomeViewModel;
-import es.travelworld.travelling.view.viewmodels.VehicleViewModel;
+import es.travelworld.travelling.viewmodel.HomeViewModel;
+import es.travelworld.travelling.viewmodel.VehicleViewModel;
 
 public class VehicleFragment extends Fragment {
 

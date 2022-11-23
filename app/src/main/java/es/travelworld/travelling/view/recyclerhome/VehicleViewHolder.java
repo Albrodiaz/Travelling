@@ -12,7 +12,7 @@ import java.util.Objects;
 
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.ItemTransportBinding;
-import es.travelworld.travelling.domain.Vehicle;
+import es.travelworld.travelling.model.Vehicle;
 
 public class VehicleViewHolder extends RecyclerView.ViewHolder {
     private final ItemTransportBinding binding;

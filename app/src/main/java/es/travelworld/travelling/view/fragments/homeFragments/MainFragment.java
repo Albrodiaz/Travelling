@@ -26,7 +26,7 @@ import java.util.Objects;
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentMainBinding;
 import es.travelworld.travelling.view.fragments.homeFragments.homeviewpager.HomePageAdapter;
-import es.travelworld.travelling.view.viewmodels.HomeViewModel;
+import es.travelworld.travelling.viewmodel.HomeViewModel;
 
 public class MainFragment extends Fragment {
 
@@ -64,9 +64,11 @@ public class MainFragment extends Fragment {
             switch (item.getItemId()) {
                 case ICONCASTLE:
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(EURODISNEYWEB)));
+                    break;
                 case ICONCAR:
                     Navigation.findNavController(binding.homeToolbar)
                             .navigate(R.id.action_mainFragment_to_carFragment);
+                    break;
             }
             return true;
         });
@@ -95,12 +97,17 @@ public class MainFragment extends Fragment {
     private void configToolbar() {
         homeViewModel.getCurrentFragment().observe(getViewLifecycleOwner(), fragment -> {
             if (Objects.equals(fragment.getTag(), TAG_HOMEFRAGMENT)) {
-                binding.homeToolbar.setTitle(R.string.home);
-                binding.homeToolbar.inflateMenu(R.menu.home_menu);
+                setHomeMenu();
             } else {
                 binding.homeToolbar.setTitle(R.string.vehicle_title);
                 binding.homeToolbar.getMenu().clear();
             }
         });
+    }
+
+    private void setHomeMenu() {
+        binding.homeToolbar.setTitle(R.string.home);
+        binding.homeToolbar.getMenu().clear();
+        binding.homeToolbar.inflateMenu(R.menu.home_menu);
     }
 }

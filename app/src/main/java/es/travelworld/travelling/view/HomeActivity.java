@@ -32,14 +32,16 @@ public class HomeActivity extends AppCompatActivity {
     private void initNavigation() {
         NavHostFragment homeNavHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(binding.navHostMain.getId());
-        homeNavController = homeNavHostFragment.getNavController();
+        if (homeNavHostFragment != null) {
+            homeNavController = homeNavHostFragment.getNavController();
+        }
     }
 
     private void userWelcome() {
         if (getIntent().getExtras() != null) {
             String name = getIntent().getExtras().getString(KEY_USER);
             String password = getIntent().getExtras().getString(KEY_PASSWORD);
-            Snackbar.make(binding.homeContainer, "Bienvenido" + name + " " + password, Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(binding.homeContainer, "Bienvenido " + name + " " + password, Snackbar.LENGTH_SHORT).show();
         }
     }
 }
