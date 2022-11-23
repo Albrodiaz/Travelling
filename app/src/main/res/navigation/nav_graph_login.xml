@@ -35,7 +35,9 @@
             app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_loginFragment_to_homeActivity"
-            app:destination="@id/homeActivity" />
+            app:destination="@id/homeActivity"
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_up" />
         <argument
             android:name="userName"
             app:argType="string"

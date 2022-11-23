@@ -119,6 +119,7 @@ public class LoginFragment extends Fragment {
                 && Objects.equals(currentUser.getUserPassword(), password)) {
             Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
                     .navigate(R.id.action_loginFragment_to_homeActivity, setData());
+            requireActivity().finish();
         } else {
             showAlert();
         }

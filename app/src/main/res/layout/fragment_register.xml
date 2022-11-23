@@ -8,13 +8,15 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/registerAppBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
+        android:layout_height="wrap_content">
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/registerToolbar"
+            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:title="@string/register"
-            app:navigationIcon="@drawable/baseline_arrow_back_white_24dp"/>
+            app:navigationIcon="@drawable/baseline_arrow_back_white_24dp"
+            app:title="@string/register" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
