@@ -10,4 +10,7 @@ public abstract class Constants {
 
     public static final String KEY_USER = "userName";
     public static final String KEY_PASSWORD = "userPassword";
+
+    public static final String TAG_HOMEFRAGMENT = "f0";
+    public static final String TAG_VEHICLEFRAGMENT = "f1";
 }

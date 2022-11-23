@@ -15,12 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentVehicleBinding;
 import es.travelworld.travelling.view.recyclerhome.VehicleAdapter;
+import es.travelworld.travelling.view.viewmodels.HomeViewModel;
 import es.travelworld.travelling.view.viewmodels.VehicleViewModel;
 
 public class VehicleFragment extends Fragment {
 
-    FragmentVehicleBinding binding;
+    private FragmentVehicleBinding binding;
     private VehicleViewModel vehicleViewModel;
+    private HomeViewModel homeViewModel;
 
     public VehicleFragment() {
     }
@@ -39,9 +41,16 @@ public class VehicleFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = FragmentVehicleBinding.bind(view);
+        homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
         vehicleViewModel = new ViewModelProvider((ViewModelStoreOwner) getViewLifecycleOwner(), new VehicleViewModel.Factory()).get(VehicleViewModel.class);
         vehicleViewModel.loadVehicles();
         initRecyclerVehicles();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        homeViewModel.setCurrentFragment(this);
     }
 
     private void initRecyclerVehicles() {

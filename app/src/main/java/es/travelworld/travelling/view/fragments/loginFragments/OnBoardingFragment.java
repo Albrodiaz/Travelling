@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import es.travelworld.travelling.databinding.FragmentOnBoardingBinding;
-import es.travelworld.travelling.view.fragments.adapters.LoginPageAdapter;
+import es.travelworld.travelling.view.fragments.loginFragments.loginviewpager.LoginPageAdapter;
 
 public class OnBoardingFragment extends Fragment {
 

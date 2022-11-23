@@ -3,6 +3,7 @@ package es.travelworld.travelling.view.fragments.homeFragments;
 import static es.travelworld.travelling.Constants.EURODISNEYWEB;
 import static es.travelworld.travelling.Constants.ICONCAR;
 import static es.travelworld.travelling.Constants.ICONCASTLE;
+import static es.travelworld.travelling.Constants.TAG_HOMEFRAGMENT;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,19 +13,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.util.Objects;
+
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentMainBinding;
-import es.travelworld.travelling.view.fragments.adapters.HomePageAdapter;
+import es.travelworld.travelling.view.fragments.homeFragments.homeviewpager.HomePageAdapter;
+import es.travelworld.travelling.view.viewmodels.HomeViewModel;
 
 public class MainFragment extends Fragment {
 
     private FragmentMainBinding binding;
+    private HomeViewModel homeViewModel;
 
     public MainFragment() {
 
@@ -43,6 +50,13 @@ public class MainFragment extends Fragment {
         listeners();
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
+        configToolbar();
     }
 
     private void listeners() {
@@ -76,5 +90,17 @@ public class MainFragment extends Fragment {
                 tab.setIcon(R.drawable.baseline_face_black_24dp);
             }
         })).attach();
+    }
+
+    private void configToolbar() {
+        homeViewModel.getCurrentFragment().observe(getViewLifecycleOwner(), fragment -> {
+            if (Objects.equals(fragment.getTag(), TAG_HOMEFRAGMENT)) {
+                binding.homeToolbar.setTitle(R.string.home);
+                binding.homeToolbar.inflateMenu(R.menu.home_menu);
+            } else {
+                binding.homeToolbar.setTitle(R.string.vehicle_title);
+                binding.homeToolbar.getMenu().clear();
+            }
+        });
     }
 }

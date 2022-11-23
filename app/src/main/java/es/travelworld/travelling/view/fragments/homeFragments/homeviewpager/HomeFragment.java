@@ -8,13 +8,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import es.travelworld.travelling.R;
-import es.travelworld.travelling.databinding.FragmentHomeBinding;
+import es.travelworld.travelling.view.viewmodels.HomeViewModel;
 
 public class HomeFragment extends Fragment {
 
-    FragmentHomeBinding binding;
+    private HomeViewModel homeViewModel;
+
     public HomeFragment() {}
 
     public static HomeFragment newInstance() {
@@ -31,6 +33,13 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding = FragmentHomeBinding.bind(view);
+        homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        homeViewModel.setCurrentFragment(this);
     }
 }

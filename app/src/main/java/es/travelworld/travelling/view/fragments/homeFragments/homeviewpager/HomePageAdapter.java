@@ -1,13 +1,8 @@
-package es.travelworld.travelling.view.fragments.adapters;
+package es.travelworld.travelling.view.fragments.homeFragments.homeviewpager;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
-
-import es.travelworld.travelling.view.fragments.homeFragments.homeviewpager.HomeFragment;
-import es.travelworld.travelling.view.fragments.homeFragments.homeviewpager.HomeFragment2;
-import es.travelworld.travelling.view.fragments.homeFragments.homeviewpager.HomeFragment3;
-import es.travelworld.travelling.view.fragments.homeFragments.homeviewpager.VehicleFragment;
 
 public class HomePageAdapter extends FragmentStateAdapter {
     public HomePageAdapter(@NonNull Fragment fragment) {
