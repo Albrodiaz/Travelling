@@ -4,18 +4,16 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import java.util.Objects;
+
 import es.travelworld.travelling.databinding.ActivityLoginBinding;
-import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
-    private NavController loginNavController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +27,6 @@ public class LoginActivity extends AppCompatActivity {
     private void initNavigation() {
         NavHostFragment loginNavHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(binding.navHostFragment.getId());
-        loginNavController = loginNavHostFragment.getNavController();
+        NavController loginNavController = Objects.requireNonNull(loginNavHostFragment).getNavController();
     }
 }

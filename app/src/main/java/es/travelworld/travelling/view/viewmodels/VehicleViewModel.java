@@ -12,7 +12,7 @@ import es.travelworld.travelling.data.VehicleProvider;
 import es.travelworld.travelling.domain.Vehicle;
 
 public class VehicleViewModel extends ViewModel {
-    private VehicleProvider vehicleProvider;
+    private final VehicleProvider vehicleProvider;
 
     public VehicleViewModel(VehicleProvider vehicleProvider) {
         this.vehicleProvider = vehicleProvider;

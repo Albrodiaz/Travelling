@@ -10,18 +10,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentOnboardingSecondBinding;
-import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 
 public class FragmentOnboardingSecond extends Fragment {
 
     private FragmentOnboardingSecondBinding binding;
-    private LoginViewModel loginViewModel;
 
     public FragmentOnboardingSecond() {
     }
@@ -45,13 +42,6 @@ public class FragmentOnboardingSecond extends Fragment {
         LayoutInflater inflater = super.onGetLayoutInflater(savedInstanceState);
         Context contextTheme = new ContextThemeWrapper(requireContext(), R.style.Theme_OnboardingActivity);
         return inflater.cloneInContext(contextTheme);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
-
     }
 
     private void listeners() {

@@ -10,17 +10,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentOnboardingThirdBinding;
-import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 
 public class FragmentOnboardingThird extends Fragment {
-
-    private FragmentOnboardingThirdBinding binding;
-    private LoginViewModel loginViewModel;
 
     public FragmentOnboardingThird() {
     }
@@ -32,19 +27,12 @@ public class FragmentOnboardingThird extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentOnboardingThirdBinding.inflate(getLayoutInflater());
+        FragmentOnboardingThirdBinding binding = FragmentOnboardingThirdBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
 
         binding.ob3LoginBtn.setOnClickListener(v -> Navigation.findNavController(requireView())
                 .navigate(R.id.action_onBoardingFragment_to_loginFragment));
         return view;
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
-
     }
 
     @NonNull

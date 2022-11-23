@@ -2,7 +2,6 @@ package es.travelworld.travelling.view.fragments.loginFragments;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static es.travelworld.travelling.Constants.REQUEST_IMAGE_CAPTURE;
-import static es.travelworld.travelling.Constants.TAG_REGISTERFRAGMENT;
 import static es.travelworld.travelling.Constants.TERMSWEB;
 
 import android.content.ActivityNotFoundException;
@@ -18,8 +17,6 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -35,14 +32,12 @@ import java.util.Objects;
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentRegisterBinding;
 import es.travelworld.travelling.utilities.Validation;
-import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 import es.travelworld.travelling.view.viewmodels.RegisterViewModel;
 
 public class RegisterFragment extends Fragment {
 
     private FragmentRegisterBinding binding;
     private final Validation validations = new Validation();
-    private LoginViewModel loginViewModel;
     private RegisterViewModel registerViewModel;
 
     public RegisterFragment() { }
@@ -65,7 +60,6 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
         registerViewModel = new ViewModelProvider(requireActivity()).get(RegisterViewModel.class);
     }
 

@@ -12,8 +12,6 @@ import es.travelworld.travelling.databinding.FragmentCarBinding;
 
 public class CarFragment extends Fragment {
 
-    private FragmentCarBinding binding;
-
     public CarFragment() { }
 
     public static CarFragment newInstance() {
@@ -23,7 +21,7 @@ public class CarFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentCarBinding.inflate(getLayoutInflater(), container, false);
+        FragmentCarBinding binding = FragmentCarBinding.inflate(getLayoutInflater(), container, false);
         View view = binding.getRoot();
 
         binding.closeFragment.setOnClickListener(v-> requireActivity().onBackPressed());

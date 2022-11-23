@@ -23,15 +23,12 @@ import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentLoginBinding;
 import es.travelworld.travelling.domain.User;
 import es.travelworld.travelling.utilities.Validation;
-import es.travelworld.travelling.view.HomeActivity;
-import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 import es.travelworld.travelling.view.viewmodels.RegisterViewModel;
 
 public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding binding;
     private final Validation validations = new Validation();
-    private LoginViewModel loginViewModel;
     private RegisterViewModel registerViewModel;
     private User currentUser;
 
@@ -52,7 +49,6 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
         registerViewModel = new ViewModelProvider(requireActivity()).get(RegisterViewModel.class);
         getUserData();
         listeners();

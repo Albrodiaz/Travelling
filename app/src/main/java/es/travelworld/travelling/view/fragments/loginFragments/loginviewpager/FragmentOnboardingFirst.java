@@ -10,17 +10,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentOnboardingFirstBinding;
-import es.travelworld.travelling.view.viewmodels.LoginViewModel;
 
 public class FragmentOnboardingFirst extends Fragment {
 
     private FragmentOnboardingFirstBinding binding;
-    private LoginViewModel loginViewModel;
 
     public FragmentOnboardingFirst() {
     }
@@ -37,12 +34,6 @@ public class FragmentOnboardingFirst extends Fragment {
         listeners();
 
         return view;
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        loginViewModel = new ViewModelProvider(requireActivity()).get(LoginViewModel.class);
     }
 
     @NonNull
