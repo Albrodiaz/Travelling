@@ -4,6 +4,8 @@
     package="es.travelworld.travelling">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -21,16 +23,18 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Travelling">
+
+        </activity>
+
+        <activity
+            android:name=".view.HomeActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".view.HomeActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
 
     </application>
 

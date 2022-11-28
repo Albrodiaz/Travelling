@@ -52,4 +52,6 @@
     <string name="transport">Ha elegido: %s</string>
     <string name="typeCar">%s Car</string>
     <string name="vehicle_title">Tipos de vehículos</string>
+    <string name="requiredPermission">Permisos necesarios</string>
+    <string name="permissionDescription">Es necesario activar la localización para poder ofrecer las mejores ofertas en alojamientos</string>
 </resources>
