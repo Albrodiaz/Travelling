@@ -38,7 +38,8 @@ public class HomeActivity extends AppCompatActivity {
                 registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {
                     Boolean fineLocationGranted = result.getOrDefault(permissions[1], false);
                     Boolean coarseLocationGranted = result.getOrDefault(permissions[0], false);
-                    if (fineLocationGranted != null && !fineLocationGranted || coarseLocationGranted != null && !coarseLocationGranted) {
+                    if (fineLocationGranted != null && !fineLocationGranted ||
+                            coarseLocationGranted != null && !coarseLocationGranted) {
                         showPermissionInfo();
                     } else {
                         userWelcome();
@@ -61,9 +62,13 @@ public class HomeActivity extends AppCompatActivity {
                 .setTitle(R.string.requiredPermission)
                 .setMessage(R.string.permissionDescription)
                 .setCancelable(false)
-                .setPositiveButton(R.string.understood,
+                .setNeutralButton(R.string.exit, (dialog, which) -> {
+                    dialog.dismiss();
+                    finish();
+                })
+                .setPositiveButton(R.string.settings,
                         (dialog, which) -> {
-                            dialog.cancel();
+                            dialog.dismiss();
                             startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                             finish();
                         })

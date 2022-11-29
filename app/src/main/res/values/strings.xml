@@ -54,4 +54,6 @@
     <string name="vehicle_title">Tipos de vehículos</string>
     <string name="requiredPermission">Permisos necesarios</string>
     <string name="permissionDescription">Es necesario activar la localización para poder ofrecer las mejores ofertas en alojamientos</string>
+    <string name="settings">Ajustes</string>
+    <string name="exit">Salir</string>
 </resources>
