@@ -1,10 +1,15 @@
 package es.travelworld.travelling.view;
 
+import static es.travelworld.travelling.Constants.CHANNEL_ID;
+import static es.travelworld.travelling.Constants.COARSE_LOCATION;
+import static es.travelworld.travelling.Constants.FINE_LOCATION;
 import static es.travelworld.travelling.Constants.KEY_PASSWORD;
 import static es.travelworld.travelling.Constants.KEY_USER;
 
-import android.Manifest;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -12,6 +17,8 @@ import android.view.View;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
@@ -22,7 +29,9 @@ import es.travelworld.travelling.databinding.ActivityHomeBinding;
 public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
-    private final String[] permissions = new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION};
+    private final String[] permissions = new String[]{FINE_LOCATION, COARSE_LOCATION};
+    private String name, password;
+    private NotificationManagerCompat notificationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +39,19 @@ public class HomeActivity extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        notificationManager = NotificationManagerCompat.from(this);
+        checkUserData();
         checkLocationPermission();
+    }
+
+    private void checkUserData() {
+        if (getIntent().getExtras() != null) {
+            name = getIntent().getExtras().getString(KEY_USER);
+            password = getIntent().getExtras().getString(KEY_PASSWORD);
+        } else {
+            name = "Invitado";
+            password = "";
+        }
     }
 
     private void checkLocationPermission() {
@@ -43,17 +64,14 @@ public class HomeActivity extends AppCompatActivity {
                         showPermissionInfo();
                     } else {
                         userWelcome();
+                        showNotification();
                     }
                 });
         locationPermissionRequest.launch(permissions);
     }
 
     private void userWelcome() {
-        if (getIntent().getExtras() != null) {
-            String name = getIntent().getExtras().getString(KEY_USER);
-            String password = getIntent().getExtras().getString(KEY_PASSWORD);
-            Snackbar.make(binding.homeContainer, "Bienvenido " + name + " " + password, Snackbar.LENGTH_SHORT).show();
-        }
+        Snackbar.make(binding.homeContainer, "Bienvenido " + name + " " + password, Snackbar.LENGTH_SHORT).show();
     }
 
     private void showPermissionInfo() {
@@ -73,5 +91,26 @@ public class HomeActivity extends AppCompatActivity {
                             finish();
                         })
                 .show();
+    }
+
+    private void showNotification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.baseline_home_white_24dp)
+                .setContentTitle(getString(R.string.welcome) + " " + name)
+                .setContentText(getString(R.string.notification_text))
+                .setStyle(new NotificationCompat.BigPictureStyle()
+                        .bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.hd_wallpaper_gb3ae929a6_640)))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setAutoCancel(true);
+        createNotificationChannel();
+        notificationManager.notify(125, builder.build());
+    }
+
+    private void createNotificationChannel() {
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
+                getString(R.string.channel_name), NotificationManager.IMPORTANCE_DEFAULT);
+        channel.setDescription(getString(R.string.channel_description));
+        NotificationManager notificationManager = getSystemService(NotificationManager.class);
+        notificationManager.createNotificationChannel(channel);
     }
 }
