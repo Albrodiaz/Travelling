@@ -4,10 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
-
-import java.util.Objects;
 
 import es.travelworld.travelling.databinding.ActivityLoginBinding;
 

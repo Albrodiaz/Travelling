@@ -5,6 +5,7 @@ import static es.travelworld.travelling.Constants.COARSE_LOCATION;
 import static es.travelworld.travelling.Constants.FINE_LOCATION;
 import static es.travelworld.travelling.Constants.KEY_PASSWORD;
 import static es.travelworld.travelling.Constants.KEY_USER;
+import static es.travelworld.travelling.Constants.NOTIFICATION_ID;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -40,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         notificationManager = NotificationManagerCompat.from(this);
+        createNotificationChannel();
         checkUserData();
         checkLocationPermission();
     }
@@ -48,9 +50,6 @@ public class HomeActivity extends AppCompatActivity {
         if (getIntent().getExtras() != null) {
             name = getIntent().getExtras().getString(KEY_USER);
             password = getIntent().getExtras().getString(KEY_PASSWORD);
-        } else {
-            name = "Invitado";
-            password = "";
         }
     }
 
@@ -98,17 +97,17 @@ public class HomeActivity extends AppCompatActivity {
                 .setSmallIcon(R.drawable.baseline_home_white_24dp)
                 .setContentTitle(getString(R.string.welcome) + " " + name)
                 .setContentText(getString(R.string.notification_text))
+                .setAutoCancel(false)
+                .setWhen(System.currentTimeMillis())
                 .setStyle(new NotificationCompat.BigPictureStyle()
                         .bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.hd_wallpaper_gb3ae929a6_640)))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setAutoCancel(true);
-        createNotificationChannel();
-        notificationManager.notify(125, builder.build());
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 
     private void createNotificationChannel() {
         NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
-                getString(R.string.channel_name), NotificationManager.IMPORTANCE_DEFAULT);
+                getString(R.string.channel_name), NotificationManager.IMPORTANCE_HIGH);
         channel.setDescription(getString(R.string.channel_description));
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(channel);

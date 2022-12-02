@@ -18,4 +18,5 @@ public abstract class Constants {
     public static final String CHANNEL_ID = "Login notify";
     public static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     public static final String COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
+    public static final int NOTIFICATION_ID = 122;
 }

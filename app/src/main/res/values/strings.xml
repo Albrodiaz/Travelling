@@ -58,5 +58,5 @@
     <string name="exit">Salir</string>
     <string name="notification_text">Nos alegra verte en este paraíso</string>
     <string name="channel_name">Login Channel</string>
-    <string name="channel_description">Notificación que aparece al hacer login</string>
+    <string name="channel_description">Notificación de bienvenida</string>
 </resources>
