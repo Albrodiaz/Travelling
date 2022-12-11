@@ -1,10 +1,21 @@
 package es.travelworld.travelling.domain;
 
 public class Hotels {
+    private String hotelName;
     private String hotelPhoto;
+    private String hotelPrice;
     private String address;
     private String locality;
-    private int rating;
+    private String rating;
+
+    public String getHotelPrice() {
+        return hotelPrice;
+    }
+
+    public void setHotelPrice(String hotelPrice) {
+        this.hotelPrice = hotelPrice;
+    }
+
 
     public String getHotelPhoto() {
         return hotelPhoto;
@@ -26,15 +37,23 @@ public class Hotels {
         return locality;
     }
 
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
+    }
+
     public void setLocality(String locality) {
         this.locality = locality;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 }

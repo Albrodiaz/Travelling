@@ -14,12 +14,14 @@ public abstract class MapperHotels {
         List<ResultsItem> listResponse = response.getResults();
 
         for (ResultsItem item: listResponse) {
-            Hotels hotelModel = new Hotels();
-            hotelModel.setHotelPhoto(item.getOptimizedThumbUrls().getSrpDesktop());
-            hotelModel.setAddress(item.getAddress().getStreetAddress());
-            hotelModel.setLocality(item.getAddress().getLocality());
-            hotelModel.setRating(item.getStarRating());
-            hotels.add(hotelModel);
+            Hotels hotelsDomain = new Hotels();
+            hotelsDomain.setHotelName(item.getName());
+            hotelsDomain.setHotelPrice(item.getRatePlan().getPrice().getCurrent());
+            hotelsDomain.setHotelPhoto(item.getOptimizedThumbUrls().getSrpDesktop());
+            hotelsDomain.setAddress(item.getAddress().getStreetAddress());
+            hotelsDomain.setLocality(item.getAddress().getLocality());
+            hotelsDomain.setRating(String.valueOf(item.getStarRating()));
+            hotels.add(hotelsDomain);
         }
 
         return hotels;

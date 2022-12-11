@@ -13,17 +13,22 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.List;
 
 import es.travelworld.travelling.R;
+import es.travelworld.travelling.databinding.FragmentHomeBinding;
 import es.travelworld.travelling.domain.Hotels;
 import es.travelworld.travelling.repository.HotelsRespository;
+import es.travelworld.travelling.view.home.fragments.hotelsadapter.HotelsAdapter;
 import es.travelworld.travelling.view.home.viewmodels.HomeViewModel;
 import es.travelworld.travelling.view.home.viewmodels.HotelsViewModel;
+import es.travelworld.travelling.view.recyclerhome.VehicleAdapter;
 
 public class HomeFragment extends Fragment {
 
+    private FragmentHomeBinding binding;
     private HomeViewModel homeViewModel;
     private HotelsViewModel hotelViewModel;
 
@@ -35,20 +40,17 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initViewModels();
-        hotelViewModel.getHotelList().observe(getViewLifecycleOwner(), hotelsList -> {
-            Log.e("HomeFragment", "Hoteles encontrados: " + hotelsList.size());
-        });
-
-
+        observers();
     }
 
     @Override
@@ -57,10 +59,19 @@ public class HomeFragment extends Fragment {
         homeViewModel.setCurrentFragment(this);
     }
 
+    private void observers() {
+        hotelViewModel.getHotelList().observe(getViewLifecycleOwner(), hotelsList -> initHotelsRecycler(hotelsList));
+    }
+
     private void initViewModels() {
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
         hotelViewModel = new ViewModelProvider((ViewModelStoreOwner) requireActivity(),
                 (ViewModelProvider.Factory) new HotelsViewModel.Factory(new HotelsRespository())).get(HotelsViewModel.class);
         hotelViewModel.loadHotels();
+    }
+
+    private void initHotelsRecycler(List<Hotels> list) {
+        binding.hotelsRecyclerView.setHasFixedSize(true);
+        binding.hotelsRecyclerView.setAdapter(new HotelsAdapter(list));
     }
 }

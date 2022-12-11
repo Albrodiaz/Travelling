@@ -35,7 +35,7 @@ public class HotelsRespository {
 
             @Override
             public void onFailure(@NonNull Call<Response> call, @NonNull Throwable t) {
-
+                    Log.e(TAG_HOTELS, "Error response http");
             }
         });
     }

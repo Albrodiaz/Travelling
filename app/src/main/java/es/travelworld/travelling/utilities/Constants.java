@@ -25,4 +25,7 @@ public abstract class Constants {
     public static final String HOST_HOTELS = "https://01394d44-8918-4a1d-8059-629c50c25e87.mock.pstmn.io/";
     public static final String TAG_HOTELS = "RepositoryHotels";
     public static final String TAG_HOTELVIEWMODEL = "HotelViewModel";
+
+    public static final String ENDPOINT_LOGIN = "login";
+    public static final String ENDPOINT_HOTELS = "login";
 }
