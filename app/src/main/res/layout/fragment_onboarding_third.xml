@@ -7,7 +7,7 @@
     android:background="@color/blue_pastel"
     android:paddingHorizontal="24dp"
     android:paddingTop="56dp"
-    tools:context=".view.fragments.loginFragments.loginviewpager.FragmentOnboardingThird">
+    tools:context=".view.login.fragments.loginviewpager.FragmentOnboardingThird">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/ob3Title"

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import es.travelworld.travelling.R;
-import es.travelworld.travelling.model.Vehicle;
+import es.travelworld.travelling.domain.Vehicle;
 
 public class VehicleProvider {
     public List<Vehicle> getVehicles() {

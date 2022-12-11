@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/onBoardingFragment"
         android:tag="onBoardingFragment"
-        android:name="es.travelworld.travelling.view.fragments.loginFragments.OnBoardingFragment"
+        android:name="es.travelworld.travelling.view.login.fragments.OnBoardingFragment"
         android:label="fragment_on_boarding"
         tools:layout="@layout/fragment_on_boarding" >
         <action
@@ -23,7 +23,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:tag="loginFragment"
-        android:name="es.travelworld.travelling.view.fragments.loginFragments.LoginFragment"
+        android:name="es.travelworld.travelling.view.login.fragments.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -49,12 +49,12 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="es.travelworld.travelling.view.fragments.loginFragments.RegisterFragment"
+        android:name="es.travelworld.travelling.view.login.fragments.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register"/>
     <activity
         android:id="@+id/homeActivity"
-        android:name="es.travelworld.travelling.view.HomeActivity"
+        android:name="es.travelworld.travelling.view.home.HomeActivity"
         android:label="HomeActivity"
         tools:layout="@layout/activity_home"/>
 </navigation>
