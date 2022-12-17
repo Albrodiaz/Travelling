@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ import java.util.Objects;
 import es.travelworld.travelling.R;
 import es.travelworld.travelling.databinding.FragmentLoginBinding;
 import es.travelworld.travelling.domain.User;
+import es.travelworld.travelling.repository.LoginRepository;
 import es.travelworld.travelling.utilities.Validation;
 import es.travelworld.travelling.view.login.RegisterViewModel;
 
@@ -68,11 +70,23 @@ public class LoginFragment extends Fragment {
 
     private void listeners() {
 
+        LoginRepository loginRepository = new LoginRepository();
+
         binding.createAccount.setOnClickListener(v -> Navigation.findNavController(requireView())
                 .navigate(R.id.action_loginFragment_to_registerFragment));
 
-        binding.loginButton.setOnClickListener(v -> checkUserData(Objects.requireNonNull(binding.etLoginUser.getText()).toString(),
-                Objects.requireNonNull(binding.etLoginPassword.getText()).toString()));
+        binding.loginButton.setOnClickListener(v -> loginRepository.getResultLogin(binding.etLoginUser.getText().toString(),
+                binding.etLoginPassword.getText().toString(), new LoginRepository.CallbackLogin() {
+                    @Override
+                    public void onSuccess() {
+                        Log.e("LoginApi", "");
+                    }
+
+                    @Override
+                    public void onError(Throwable error) {
+                        Log.e("LoginApi", "Error: " + error.getMessage());
+                    }
+                }));
 
         binding.etLoginUser.addTextChangedListener(new TextWatcher() {
             @Override

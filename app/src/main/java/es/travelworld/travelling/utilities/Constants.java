@@ -22,10 +22,11 @@ public abstract class Constants {
     public static final String COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     public static final int NOTIFICATION_ID = 122;
 
-    public static final String HOST_HOTELS = "https://01394d44-8918-4a1d-8059-629c50c25e87.mock.pstmn.io/";
+    public static final String HOST_URL = "https://01394d44-8918-4a1d-8059-629c50c25e87.mock.pstmn.io/";
     public static final String TAG_HOTELS = "RepositoryHotels";
     public static final String TAG_HOTELVIEWMODEL = "HotelViewModel";
+    public static final String TAG_LOGIN = "RepositoryLogin";
 
     public static final String ENDPOINT_LOGIN = "login";
-    public static final String ENDPOINT_HOTELS = "login";
+    public static final String ENDPOINT_HOTELS = "hotelList";
 }
