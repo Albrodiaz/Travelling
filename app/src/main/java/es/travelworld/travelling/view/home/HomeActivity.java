@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
     private final String[] permissions = new String[]{FINE_LOCATION, COARSE_LOCATION};
-    private String name, password;
+    private String name;
     private NotificationManagerCompat notificationManager;
 
     @Override
@@ -49,7 +49,6 @@ public class HomeActivity extends AppCompatActivity {
     private void checkUserData() {
         if (getIntent().getExtras() != null) {
             name = getIntent().getExtras().getString(KEY_USER);
-            password = getIntent().getExtras().getString(KEY_PASSWORD);
         }
     }
 
@@ -70,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void userWelcome() {
-        Snackbar.make(binding.homeContainer, "Bienvenido " + name + " " + password, Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(binding.homeContainer, "Bienvenido " + name, Snackbar.LENGTH_SHORT).show();
     }
 
     private void showPermissionInfo() {

@@ -14,9 +14,7 @@ public class RegisterViewModel extends ViewModel {
     }
 
     public void createUser(String name, String password) {
-        User user = new User();
-        user.setUserName(name);
-        user.setUserPassword(password);
+        User user = new User(name, password);
         currentUSer.setValue(user);
     }
 }

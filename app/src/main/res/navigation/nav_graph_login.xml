@@ -42,10 +42,6 @@
             android:name="userName"
             app:argType="string"
             android:defaultValue="@null"/>
-        <argument
-            android:name="userPassword"
-            app:argType="string"
-            android:defaultValue="@null"/>
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

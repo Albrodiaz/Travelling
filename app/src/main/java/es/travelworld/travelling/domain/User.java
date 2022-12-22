@@ -1,10 +1,19 @@
 package es.travelworld.travelling.domain;
 
-public class User {
-    String userName;
-    String userPassword;
+import com.google.gson.annotations.SerializedName;
 
-    public String getUserName() {
+public class User {
+    @SerializedName("usuario")
+    public String userName;
+    @SerializedName("password")
+    public String userPassword;
+
+    public User(String userName, String userPassword) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+    }
+
+    /*public String getUserName() {
         return userName;
     }
 
@@ -18,5 +27,5 @@ public class User {
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
-    }
+    }*/
 }

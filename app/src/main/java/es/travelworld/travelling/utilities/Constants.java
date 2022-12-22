@@ -28,5 +28,5 @@ public abstract class Constants {
     public static final String TAG_LOGIN = "RepositoryLogin";
 
     public static final String ENDPOINT_LOGIN = "login";
-    public static final String ENDPOINT_HOTELS = "hotelList";
+    public static final String ENDPOINT_HOTELS = "listHotels";
 }

@@ -1,13 +1,11 @@
 package es.travelworld.travelling.view.login.fragments;
 
-import static es.travelworld.travelling.utilities.Constants.KEY_PASSWORD;
 import static es.travelworld.travelling.utilities.Constants.KEY_USER;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,18 +73,18 @@ public class LoginFragment extends Fragment {
         binding.createAccount.setOnClickListener(v -> Navigation.findNavController(requireView())
                 .navigate(R.id.action_loginFragment_to_registerFragment));
 
-        binding.loginButton.setOnClickListener(v -> loginRepository.getResultLogin(binding.etLoginUser.getText().toString(),
-                binding.etLoginPassword.getText().toString(), new LoginRepository.CallbackLogin() {
-                    @Override
-                    public void onSuccess() {
-                        Log.e("LoginApi", "");
-                    }
+        binding.loginButton.setOnClickListener(v -> loginRepository.getResultLogin(new User(binding.etLoginUser.getText().toString(),
+                binding.etLoginPassword.getText().toString()), new LoginRepository.CallbackLogin() {
+            @Override
+            public void onSuccess() {
+                Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_homeActivity, setData());
+            }
 
-                    @Override
-                    public void onError(Throwable error) {
-                        Log.e("LoginApi", "Error: " + error.getMessage());
-                    }
-                }));
+            @Override
+            public void onError(Throwable error) {
+                showAlert();
+            }
+        }));
 
         binding.etLoginUser.addTextChangedListener(new TextWatcher() {
             @Override
@@ -127,7 +125,7 @@ public class LoginFragment extends Fragment {
         currentUser = registerViewModel.getCurrentUser().getValue();
     }
 
-    private void checkUserData(String name, String password) {
+    /*private void checkUserData(String name, String password) {
 
         if (currentUser != null
                 && Objects.equals(currentUser.getUserName(), name)
@@ -138,7 +136,7 @@ public class LoginFragment extends Fragment {
         } else {
             showAlert();
         }
-    }
+    }*/
 
     private void showAlert() {
         MaterialAlertDialogBuilder alertDialogBuilder = new MaterialAlertDialogBuilder(requireContext());
@@ -157,8 +155,7 @@ public class LoginFragment extends Fragment {
 
     private Bundle setData() {
         Bundle bundle = new Bundle();
-        bundle.putString(KEY_USER, currentUser.getUserName());
-        bundle.putString(KEY_PASSWORD, currentUser.getUserPassword());
+        bundle.putString(KEY_USER, Objects.requireNonNull(binding.etLoginUser.getText()).toString());
         return bundle;
     }
 }
