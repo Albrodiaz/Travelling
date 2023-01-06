@@ -19,7 +19,12 @@
             app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_mainFragment_to_mapFragment"
-            app:destination="@id/mapFragment"/>
+            app:destination="@id/mapFragment"
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_up"
+            app:popEnterAnim="@anim/slide_in_down"
+            app:popExitAnim="@anim/slide_out_down"
+            app:popUpTo="@id/onBoardingFragment"/>
     </fragment>
     <fragment
         android:id="@+id/carFragment"
