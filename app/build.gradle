@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "es.travelworld.travelling"
-        minSdk 26 //TODO: Cambiar a verision 27 al acabar
+        minSdk 27
         targetSdk 32
         versionCode 1
         versionName "1.0"
