@@ -9,14 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMapOptions;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import androidx.navigation.Navigation;
 
 import java.util.List;
 
@@ -28,13 +21,14 @@ import es.travelworld.travelling.view.home.fragments.hotelsadapter.HotelsAdapter
 import es.travelworld.travelling.view.home.viewmodels.HomeViewModel;
 import es.travelworld.travelling.view.home.viewmodels.HotelsViewModel;
 
-public class HomeFragment extends Fragment implements OnMapReadyCallback {
+public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private HomeViewModel homeViewModel;
     private HotelsViewModel hotelViewModel;
 
-    public HomeFragment() {}
+    public HomeFragment() {
+    }
 
     public static HomeFragment newInstance() {
 
@@ -53,16 +47,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState);
         initViewModels();
         observers();
-        initMap();
-    }
-
-    private void initMap() {
-        SupportMapFragment mapFragment = SupportMapFragment.newInstance(mapOptions());
-        getParentFragmentManager()
-                .beginTransaction()
-                .add(R.id.map, mapFragment)
-                .commit();
-        mapFragment.getMapAsync(this);
     }
 
     @Override
@@ -72,37 +56,22 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     }
 
     private void observers() {
-        hotelViewModel.getHotelList().observe(getViewLifecycleOwner(), hotelsList -> initHotelsRecycler(hotelsList));
+        hotelViewModel.getHotelList().observe(getViewLifecycleOwner(), this::initHotelsRecycler);
     }
 
     private void initViewModels() {
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
-        hotelViewModel = new ViewModelProvider(requireActivity(),
-                (ViewModelProvider.Factory) new HotelsViewModel.Factory(new HotelsRespository())).get(HotelsViewModel.class);
+        hotelViewModel = new ViewModelProvider(requireActivity(), (ViewModelProvider.Factory) new HotelsViewModel.Factory(new HotelsRespository())).get(HotelsViewModel.class);
         hotelViewModel.loadHotels();
     }
 
     private void initHotelsRecycler(List<Hotels> list) {
+        HotelsAdapter adapter = new HotelsAdapter(list, hotel -> {
+            hotelViewModel.setHotelSelected(hotel);
+            Navigation.findNavController(requireView()).navigate(R.id.action_mainFragment_to_mapFragment);
+        });
         binding.hotelsRecyclerView.setHasFixedSize(true);
-        binding.hotelsRecyclerView.setAdapter(new HotelsAdapter(list));
-    }
-
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        LatLng localizacion = new LatLng(37.21, -7.4043);
-        googleMap.addMarker(new MarkerOptions()
-                .position(localizacion)
-                .title("Posición aleatoria")
-                .snippet("Eooooo"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(localizacion));
-    }
-
-    private GoogleMapOptions mapOptions() {
-        GoogleMapOptions options = new GoogleMapOptions();
-        options.zoomControlsEnabled(true);
-        options.zoomGesturesEnabled(true);
-        options.minZoomPreference(14);
-        return options;
+        binding.hotelsRecyclerView.setAdapter(adapter);
     }
 }
 

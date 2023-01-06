@@ -21,6 +21,8 @@ public abstract class MapperHotels {
             hotelsDomain.setAddress(item.getAddress().getStreetAddress());
             hotelsDomain.setLocality(item.getAddress().getLocality());
             hotelsDomain.setRating(String.valueOf(item.getStarRating()));
+            hotelsDomain.setLatitude(item.getCoordinate().getLat());
+            hotelsDomain.setLongitude(item.getCoordinate().getLon());
             hotels.add(hotelsDomain);
         }
 
