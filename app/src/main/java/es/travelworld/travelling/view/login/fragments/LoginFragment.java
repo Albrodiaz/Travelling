@@ -33,7 +33,6 @@ public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
     private final Validation validations = new Validation();
     private RegisterViewModel registerViewModel;
-    private User currentUser;
 
     public LoginFragment() {
     }
@@ -73,11 +72,14 @@ public class LoginFragment extends Fragment {
         binding.createAccount.setOnClickListener(v -> Navigation.findNavController(requireView())
                 .navigate(R.id.action_loginFragment_to_registerFragment));
 
-        binding.loginButton.setOnClickListener(v -> loginRepository.getResultLogin(new User(binding.etLoginUser.getText().toString(),
-                binding.etLoginPassword.getText().toString()), new LoginRepository.CallbackLogin() {
+        binding.loginButton.setOnClickListener(v -> loginRepository.getResultLogin(
+                new User(Objects.requireNonNull(binding.etLoginUser.getText()).toString(),
+                Objects.requireNonNull(binding.etLoginPassword.getText()).toString()),
+                new LoginRepository.CallbackLogin() {
             @Override
             public void onSuccess() {
                 Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_homeActivity, setData());
+                requireActivity().finish();
             }
 
             @Override
@@ -122,7 +124,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void getUserData() {
-        currentUser = registerViewModel.getCurrentUser().getValue();
+        User currentUser = registerViewModel.getCurrentUser().getValue();
     }
 
     /*private void checkUserData(String name, String password) {

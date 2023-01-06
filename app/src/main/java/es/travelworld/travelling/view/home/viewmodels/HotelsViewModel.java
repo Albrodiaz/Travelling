@@ -17,16 +17,24 @@ import es.travelworld.travelling.repository.HotelsRespository;
 
 public class HotelsViewModel extends ViewModel {
 
-    private HotelsRespository respository;
+    private final HotelsRespository respository;
 
     public HotelsViewModel(HotelsRespository respository) {
         this.respository = respository;
     }
 
-    private MutableLiveData<List<Hotels>> hotelList = new MutableLiveData<>();
+    private final MutableLiveData<List<Hotels>> hotelList = new MutableLiveData<>();
 
     public LiveData<List<Hotels>> getHotelList() {
         return hotelList;
+    }
+
+    private final MutableLiveData<Hotels> hotelSelected = new MutableLiveData<>();
+    public LiveData<Hotels> getHotelSelected() {
+        return hotelSelected;
+    }
+    public void setHotelSelected(Hotels hotel) {
+        hotelSelected.setValue(hotel);
     }
 
     public void loadHotels() {

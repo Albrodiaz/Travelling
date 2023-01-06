@@ -17,10 +17,18 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainFragment_to_mapFragment"
+            app:destination="@id/mapFragment"/>
     </fragment>
     <fragment
         android:id="@+id/carFragment"
         android:name="es.travelworld.travelling.view.home.fragments.CarFragment"
         android:label="fragment_car"
         tools:layout="@layout/fragment_car" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="es.travelworld.travelling.view.home.fragments.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
 </navigation>

@@ -7,6 +7,8 @@ public class Hotels {
     private String address;
     private String locality;
     private String rating;
+    private Object latitude;
+    private Object longitude;
 
     public String getHotelPrice() {
         return hotelPrice;
@@ -55,5 +57,21 @@ public class Hotels {
 
     public void setRating(String rating) {
         this.rating = rating;
+    }
+
+    public Object getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Object latitude) {
+        this.latitude = latitude;
+    }
+
+    public Object getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Object longitude) {
+        this.longitude = longitude;
     }
 }

@@ -15,16 +15,22 @@ import es.travelworld.travelling.view.home.viewmodels.HotelsViewModel;
 public class HotelsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final List<Hotels> hotelsList;
+    private final OnHotelSelected hotelListener;
 
-    public HotelsAdapter(List<Hotels> hotels) {
+    public interface OnHotelSelected{
+        void hotelSelected(Hotels hotel);
+    }
+
+    public HotelsAdapter(List<Hotels> hotels, OnHotelSelected hotelListener) {
         hotelsList = hotels;
+        this.hotelListener = hotelListener;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ItemHotelsBinding binding = ItemHotelsBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new HotelsViewHolder(binding);
+        return new HotelsViewHolder(binding, hotelListener);
     }
 
     @Override
